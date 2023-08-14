@@ -1,0 +1,3822 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap Icons CDN link -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+        <!-- Font Awesome CDN links -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+        <!-- Your other stylesheets, favicon, and title -->
+        <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+        <title>HMovie</title>
+    </head>
+<body>
+
+
+<style>
+    /* Google font "Poppins" */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+html {
+    font-family: sans-serif;
+     
+   
+
+
+  }
+  
+ 
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    background: rgb(109, 109, 109);
+}
+   
+  
+
+
+
+
+header {
+    position: relative;
+    width: 100%;
+    height: auto;
+    
+    /*background: url('img/121213.jpg') no-repeat center center/cover;*/
+    transition: 1s linear;
+    z-index: 2;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(0deg, rgb(17, 16, 16), transparent);
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+header::after {
+    content: '';
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(90deg, rgb(14, 13, 13), transparent);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+header .container {
+    width: 100%;
+    height: 15%;
+    border-bottom: 1.3px solid rgb(255, 255, 255, .1);*/
+    align-items: center;  
+}
+
+
+header nav {
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    /*border-bottom: 1.3px solid rgb(255, 255, 255, .1);*/
+    padding: 0px 3%;
+    display: flex;
+    /*background-color: #050505;*/
+    font-weight: 500;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.6s linear;
+}
+nav.sticky {
+    background: #918f8f;
+    height: 10%;
+}
+
+
+.slider-container {
+    display: flex;
+    transition: transform 0.2s ease-in-out;
+}
+
+ 
+ 
+#toggle_buttons {
+    display: flex;
+    justify-content: space-between; /* Center the buttons on each side */
+    align-items: center; /* Center vertically */
+    margin-top: 10px;
+}
+#viewMoreContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  margin-bottom: 20px; /* Add some margin for spacing */
+}
+
+.loading-btn {
+    position: relative;
+  
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: red;
+    border: 2px solid red;
+    color: #fff;
+    margin-right: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    box-shadow: 0px 3px 10px red;
+    transition: .3s linear;
+    cursor: pointer;
+    z-index: 1;
+}
+.loading-btn:nth-child(2) {
+    border: 2px solid #000;
+    color: #fff;
+    background: #000;
+    box-shadow: 0px 3px 10px #000;
+}
+.loading-btn:hover {
+    border: 2px solid #000;
+    color: #fff;
+    background: #000;
+    box-shadow: 0px 3px 10px #000;
+}
+.loading-btn {
+  position: relative;
+}
+
+.loading-btn i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+}
+
+.loading-btn.loading i {
+  display: inline-block;
+}
+
+#prev_button,
+#next_button {
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: red;
+    border: 2px solid red;
+    color: #fff;
+    margin-right: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    box-shadow: 0px 3px 10px red;
+    transition: .3s linear;
+    cursor: pointer;
+    z-index: 1;
+    display: none;
+}
+ 
+ 
+#prev_button ,
+#next_button  button:nth-child(2) {
+    border: 2px solid #000;
+    color: #fff;
+    background: #000;
+    box-shadow: 0px 3px 10px #000;
+}
+
+#prev_button:hover,
+#next_button:hover {
+    border: 2px solid #000;
+    color: #fff;
+    background: #000;
+    box-shadow: 0px 3px 10px #000;
+}
+
+#prev_button   ,
+#next_button :nth-child(2):hover {
+    background: red;
+    border: 2px solid red;
+    color: #fff;
+    box-shadow: 0px 3px 10px red;
+}
+/*menu-bar*/
+body.is-overlay-open {
+    overflow: hidden;
+}
+
+.is-overlay-open .c-menu-overlay {
+    opacity: 1;
+    visiblity: visible;
+}
+
+.c-nav-overlay {
+	visibility: hidden;
+    position: fixed;
+    z-index: 800;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    opacity: 0;
+    background-color: #8b7f7f;
+    color: #ffffff;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    transition: opacity 0.3s, visibility 0.9s;
+
+}
+.c-nav-overlay::-webkit-scrollbar {
+    display: none;
+}
+.c-nav-overlay--open {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+   
+   
+}
+.c-nav-overlay--open {
+    padding: 10px;
+}
+.c-nav-toggle{
+    color: #fff1f1;
+    font-size: 40px;
+    background-color: transparent;
+    border-radius: 70%;
+    border: none;
+    cursor: pointer;
+}
+.c-nav-overlay ul li a {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .3s linear;
+
+}
+.c-nav-overlay ul li a:hover {
+    color: rgba(219, 14, 127, 0.7);
+    font-size: 18px;
+    font-weight: 100px;
+}
+.c-nav-overlay ul li .list-btn {
+    border-radius: 20px;
+    padding: 2px 2px;
+    border-color: none;
+
+}
+.c-nav-overlay ul li .list-btn  a {
+    color: black;
+    padding: .4rem 0.6rem;
+}
+.c-nav-overlay ul li .list-btn  a:hover {
+    color: rgba(219, 14, 127, 0.7);
+    font-size: 14px;
+    font-weight: 100px;
+}
+/*menu-bar*/
+
+.logo,
+.end_bx {
+
+    display: flex;
+    
+    align-items: center;
+}
+
+header nav .logo img {
+    width: 100px;
+    transition: width 0.2s ease;
+}
+header nav .logo img:hover {
+    width: 110px;
+}
+
+header nav .end_bx ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+header nav .end_bx ul li {
+    margin: 0px 30px;
+    position: relative;
+}
+
+header nav .end_bx ul li a {
+    text-decoration: none;
+    color: rgba(255, 242, 242, 0.7);
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    transition: .3s linear;
+}
+
+header nav .end_bx ul li:nth-child(4) {
+    color: rgba(255, 30, 30, 0.7);
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    transition: .3s linear;
+    cursor: pointer;
+}
+
+header nav .end_bx ul li:nth-child(4):hover {
+    color: #fff;
+    font-size: 1.375rem;
+    transition: .3s linear;
+}
+
+header nav .end_bx ul li a:hover {
+    color:  rgba(224, 66, 66, 0.986);
+    font-size: 1.125rem;
+    transition: .3s linear;
+}
+
+header nav .end_bx ul li:nth-child(4) .fas {
+    font-size: 0.75rem;
+    margin: 2px 0px 0px 3px;
+    transition: .3s linear;
+}
+
+header nav .end_bx ul li:nth-child(4):hover .fas {
+    transform: rotate(180deg);
+}
+
+
+
+
+header nav .end_bx ul li .list {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    top: 30px;
+    z-index: 1;
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+header nav .end_bx ul li:hover .list {
+    opacity: 1;
+    visibility: visible;
+}
+
+header nav .end_bx ul li .list::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(184, 184, 184, .1);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    z-index: -1;
+}
+
+header nav .end_bx ul li .list::after {
+    content: '';
+    position: absolute;
+    border-left: 15px solid rgb(184, 184, 184, .1);
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    backdrop-filter: blur(5px);
+    top: -1px;
+    left: 20px;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+header nav .end_bx ul li .list a {
+    text-decoration: none;
+    color: rgb(255, 255, 255, .7);
+    padding: 10px 0px 10px 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    transition: .3s linear;
+}
+
+header nav .end_bx ul li .list a:hover {
+    color: #fff;
+    font-size: 14px;
+}
+
+
+
+
+header nav .end_bx .search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+header nav .end_bx .search input {
+    padding: 3px 0px 3px 8px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: #fff;
+    transition: 1s linear;
+    -webkit-transition: 1s linear;
+    width: 0px;
+}
+
+header nav .end_bx .search i {
+    color: rgb(255, 255, 255, .7);
+    font-size: 13px;
+    cursor: pointer;
+    transition: .4s linear;
+}
+
+header nav .end_bx .search i:hover {
+    color: #fff;
+    font-size: 14px;
+    
+
+}
+
+
+header nav .end_bx .search .search_bx2 {
+    position: absolute;
+    width: 200px;
+    height: 300px;
+
+    top: 35px;
+    left: -10px;
+    background: rgb(184, 184, 184, .3);
+    border-radius: 10px;
+    overflow: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s linear;
+}
+
+header nav .end_bx .search .search_bx2::-webkit-scrollbar {
+    width: 7px;
+    background: rgb(184, 184, 184, .3);
+    border-radius: 20px;
+}
+
+header nav .end_bx .search .search_bx2::-webkit-scrollbar-thumb {
+    background: rgb(184, 184, 184, .7);
+    border-radius: 20px;
+}
+
+header nav .end_bx .search .search_bx2 a {
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    transition: .3s linear;
+}
+
+header nav .end_bx .search .search_bx2 a:hover {
+    background: rgb(184, 184, 184, .6);
+}
+
+header nav .end_bx .search .search_bx2 a img {
+    width: 30px;
+    height: 45px;
+    border-radius: 5px;
+    margin: 0px 5px;
+}
+
+header nav .end_bx .search .search_bx2 a .content2 {
+    color: #fff;
+}
+
+header nav .end_bx .search .search_bx2 a .content2 h6 {
+    font-size: 13px;
+}
+
+header nav .end_bx .search .search_bx2 a .content2 p {
+    color: rgb(255, 255, 255, .7);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+
+
+
+header nav .end_bx .search .search_input {
+    width: 180px;
+}
+
+
+
+
+header nav .end_bx .bell {
+    color: rgb(255, 255, 255, .7);
+    font-size: 13px;
+    cursor: pointer;
+    transition: .3s linear;
+    margin: 0px 35px;
+}
+
+header nav .end_bx .bell:hover {
+    color: #fff;
+}
+
+header nav .end_bx .user {
+    width: 20px;
+    height: 20px;
+    /*border: 1px solid #fff;*/
+    border-radius: 50%;
+}
+
+header nav .end_bx .user img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+ 
+ header .content {
+    width: 100%;
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     
+
+
+    
+}
+  
+
+ header .content .moviepagecard{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+}
+header .content .moviepagecard img{
+   position: relative;
+    width: 270px;
+    margin-bottom: 1%;
+    border-radius: 20px;
+
+}
+header .content h6 {
+    letter-spacing: 1px;
+    line-height: 10px;
+    margin-top: 20px;
+    color: #fff;
+    font-size: 18px;
+    transition: 1s linear;
+    margin-bottom: 2%;
+  
+}
+
+header .content h6 span {
+    color: rgba(60, 255, 0, 0.8);
+    margin-left: 10px;
+
+}
+header .ratediv{
+   
+    margin-top: 7%;
+    margin-left: 10%;
+    width: 40px;
+    
+}
+header .ratediv h3 {
+  
+    color: rgba(53, 255, 2, 0.8);
+    font-size: 26px;
+    margin: 10px 0px;
+    transition: 1s linear;
+    align-items: flex-start;
+}
+
+ 
+
+header .ratediv h3 i {
+    color: rgb(255, 255, 0);
+ 
+    margin-right: 3px;
+    margin-bottom: 3px;
+}
+
+header .ratediv h3 span {
+    background-color: rgb(255, 255, 0);
+    color: rgb(0, 0, 0);
+    padding: 5px 5px 5px 2px;
+    border-radius: 8px;
+    font-weight: 900;
+    font-size: 20px;
+    
+    
+   
+    transition: 1s linear;
+}
+
+header .content h1 {
+    font-size: 45px;
+    min-width: 20px;
+    line-height: 3%;
+    margin-bottom: 10px;
+    color: #fff;
+    transition: 1s linear;
+}
+header .content h8 {
+    font-size: 25px;
+    line-height: 35px;
+    
+    font-weight: bolder;
+    margin-bottom: 10px 20px;
+    color: #fff;
+    transition: 1s linear;
+}
+header .content p {
+    width: 100%;
+    
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 0.5%;
+    margin-bottom: 1.2rem;
+    transition: 1s linear;
+}
+header .content .genrecontent {
+    padding: 6px 12px;
+    border-radius: 20px;
+    word-spacing: 2px;
+    color: #fff;
+    margin-right: 10px;
+    
+    font-size: 22px;
+    font-weight: 500;
+   }
+header .content .genrecontent h9 {
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: bolder;
+    margin-bottom: 10px 20px;
+    color: #fff;
+    transition: 1s linear; 
+}
+
+header .content .genrecontent h20 {
+    font-size: 25px;
+    line-height: 10px;
+    font-weight: bolder;
+    margin-bottom: 10px 20px;
+    color: #fff;
+    transition: 1s linear; 
+}
+header .content .genrecontent h10 {
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: bolder;
+    margin-bottom: 10px 20px;
+    color: #fff;
+    transition: 1s linear; 
+}header .content .genrecontent h11 {
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: bolder;
+    margin-bottom: 10px 20px;
+    color: #fff;
+    transition: 1s linear; 
+}header .content .genrecontent h12 {
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: bolder;
+    margin-bottom: 10px 20px;
+    color: #fff;
+    transition: 1s linear; 
+}
+header .content .genrecontent h13 {
+    font-size: 25px;
+    line-height: 20px;
+    font-weight: bolder;
+    margin-bottom: 10px 20px;
+    color: #fff;
+    transition: 1s linear; 
+}
+header .content .genrecontent h15 {
+    font-size: 25px;
+    line-height: 35px;
+    font-weight: bolder;
+    margin-bottom: 10px 20px;
+    color: #fff;
+    transition: 1s linear; 
+}
+
+header .content .genrecontent a {
+   
+    color: rgb(97, 255, 18);
+    font-size: 18px;
+    font-weight: bolder;
+    transition: 0.3s ease;
+    margin-top: 0px;
+}
+header .content .genrecontent a:hover {
+ 
+    font-size: 20;
+}
+header .content .genrecontent a span {
+   
+    padding: 5px 5px 5px 2px;
+    border-radius: 8px;
+    
+    
+    
+    
+   
+    transition: 1s linear;
+}
+header .content .genrecontent h15  a{
+    font-size: 25px;
+    text-decoration: none;
+    font-weight: bolder;
+    margin-bottom: 10px 20px;
+    color: #fff;
+    transition: 1s linear; 
+}
+header .content .btns {
+    
+    align-items: center;
+    margin-bottom: 20px;
+ 
+}
+
+header .content .btns button {
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: red;
+    border: 2px solid red;
+    color: #fff;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    box-shadow: 0px 3px 10px red;
+    transition: .3s linear;
+    cursor: pointer;
+    z-index: 1;
+}
+header .content .btns button:nth-child(2) {
+    border: 2px solid #000;
+    color: #fff;
+    background: #000;
+    box-shadow: 0px 3px 10px #000;
+}
+
+header .content .btns button:hover {
+    border: 2px solid #000;
+    color: #fff;
+    background: #000;
+    box-shadow: 0px 3px 10px #000;
+}
+
+header .content .btns button:nth-child(2):hover {
+    background: red;
+    border: 2px solid red;
+    color: #fff;
+    box-shadow: 0px 3px 10px red;
+}
+
+
+
+header .content .btns button .fas {
+    margin-right: 5px;
+}
+
+header .slider_btns {
+    position: absolute;
+    width: 18.75rem;
+    height: 3.125rem;
+
+    bottom: 0;
+    left: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .slider_btns h6 {
+    width: 1.875rem;
+    height: 0.1875rem;
+    margin-right: 5px;
+    transition: 1s linear;
+    background: rgb(184, 184, 184, .1);
+}
+
+header .slider_btns h6:nth-child(1) {
+    background: #fff;
+}
+
+
+
+/* category box start  */
+
+
+
+.cato_bx button {
+    padding: 4px 30px;
+    background: red;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.cato_bx button:hover {
+    background: rgb(184, 184, 184, .1);
+}
+
+
+
+
+/* cato button java class start  */
+
+.cato_bx .cato_button_active {
+    background: rgb(184, 184, 184, .2);
+}
+
+
+/* cato button java class end */
+
+
+
+
+
+
+
+/* movies box java class start  */
+
+
+
+/* movies box java class end  */
+
+.movie_bx_1 .card:nth-last-child(1) {
+    margin: 0px 5px 0px 0px;
+}
+
+
+
+.movie_bx_1 .card a {
+    text-decoration: none;
+    color: #fff;
+    transition: color .1s linear;
+}
+.movie_bx_1 .card a:hover {
+    color: red;
+    
+}
+
+.movie_bx_1 .card a img {
+    width: 100%;
+    height: 80%;
+    border-radius: 8px;
+    transition: .3s ease-out;
+}
+.movie_bx_1 .card a img:hover {
+    height: 100%;
+}
+
+.movie_bx_1 .card a .content {
+    width: 100%;
+    height: 15%;
+    /* border: 1px solid #fff; */
+    margin-top: 5px;
+    transition: .3s ease-in;
+}
+.movie_bx_1 .card a .content:hover {
+    height: 10%;
+}
+
+.movie_bx_1 .card a .content h5 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.movie_bx_1 .card a .content h6 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: bold;
+}
+
+.movie_bx_1 .card a .content h6 span {
+    color: #ffffff;
+    font-weight: lighter;
+}
+
+.movie_bx_1 .card a .content h6 .rate {
+    color: #ffff;
+    font-size: 0.5rem;
+    display: flex;
+    align-items: center;
+
+}
+
+.movie_bx_1 .card a .content h6 .rate .bi {
+    margin-right: 0.1rem;
+    font-size: 0.5rem;
+    color:  rgb(255, 255, 30);
+}
+.movie_bx_1 .card a .content h6 .rate span {
+ 
+
+    background: rgb(255, 255, 30);
+    color: black;
+    padding: 0px 3px;
+    margin: 0px 0.2rem 0px 0px;
+    font-weight: 900;
+   
+    border-radius: 2px;
+    
+
+}
+
+
+.movie_bx_1 .card a .content h6 .rate .fas:nth-last-child(2) {
+    color: yellow;
+    margin: 1px;
+}
+
+.movie_bx_1 .card a .content h6 .rate h6 {
+    color: rgb(255, 239, 14);
+    margin-top: 3px;
+    font-size: 11px;
+    height: 5px;
+}
+
+.movie_bx_1 button {
+    position: absolute;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: none;
+    left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.movie_bx_1 button::before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: rgb(255, 255, 255, .5);
+    border-radius: 50%;
+    left: -5px;
+    top: -1px;
+    z-index: -1;
+    transition: .3s linear;
+}
+
+.movie_bx_1 button:hover::before {
+    background: rgb(255, 0, 0, .5);
+}
+
+.movie_bx_1 button:nth-child(2) {
+    left: 98%;
+}
+
+.movie_bx_1 button:nth-child(1) i {
+    transform: rotate(90deg);
+}
+
+.movie_bx_1 button:nth-child(2) i {
+    transform: rotate(-90deg);
+}
+
+.movie_bx_1 button:nth-child(2)::before {
+    left: -7px;
+    top: -1px;
+}
+
+.movie_bx_2 {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    overflow: unset;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0px;
+}
+
+.movie_bx_2 .card {
+    width: 140px;
+    margin: 10px auto;
+    margin-right: 1%;
+
+}
+
+
+/* movies box2 start  */
+
+.all,
+.latest,
+.year,
+.letter,
+.rate_change {
+    width: 100%;
+    height: auto;
+    /* border: 1px solid #fff; */
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.box2_actives {
+    display: flex;
+}
+
+
+/* movies box2 end  */
+
+
+.cato_bx2 {
+    position: relative;
+    overflow: visible;
+    height: 30px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.cato_bx2 .left_cato button:nth-child(1) {
+    background: none;
+}
+
+.cato_bx2 .left_cato button i {
+    margin-left: 10px;
+    transition: .3s linear;
+}
+
+.cato_bx2 .left_cato button:nth-child(4),
+button:nth-child(5) {
+    padding: 4px 15px;
+    position: relative;
+    background: rgb(184, 184, 184, .1);
+}
+
+.cato_bx2 .right_cato {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cato_bx2 .right_cato i {
+    color: yellow;
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+.cato_bx2 .right_cato input[type="range"] {
+    -webkit-appearance: none;
+    background: red;
+    border-radius: 20px;
+    height: 7px;
+}
+
+.cato_bx2 .right_cato input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #fff;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.cato_bx2 .right_cato span {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.cato_bx2 button .year_bx {
+    position: absolute;
+    width: 80px;
+    height: 150px;
+    /* border: 1px solid #fff; */
+    background: rgb(8, 8, 8, .7);
+    border-radius: 10px 3px 3px 10px;
+    top: 35px;
+    left: 0;
+    z-index: 999;
+    overflow: auto;
+    transition: 1s linear;
+    display: none;
+}
+
+.cato_bx2 button .year_bx::-webkit-scrollbar {
+    background: transparent;
+    width: 7px;
+}
+
+.cato_bx2 button .year_bx::-webkit-scrollbar-track {
+    background: rgb(184, 184, 184, .4);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+}
+
+.cato_bx2 button .year_bx::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 20px;
+}
+
+.cato_bx2 button .year_bx li {
+    list-style-type: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 5px;
+    color: #fff;
+    transition: .3s linear;
+}
+
+.cato_bx2 button .year_bx li:hover {
+    color: red;
+}
+
+.cato_bx2 button .letter_bx {
+    width: 40px;
+}
+
+.cato_bx2 button .letter_bx li {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* javascript classes start  */
+
+.cato_bx2 .show_year1 .year_bx {
+    display: unset;
+}
+
+.cato_bx2 .show_year1 i {
+    transform: rotate(180deg);
+}
+
+.cato_bx2 button .year_bx .li_change {
+    color: red;
+}
+ 
+
+
+/* javascript classes end */
+.video-container {
+            position: relative;
+            width: 600px;
+            height: 350px;
+            background-color: black;
+            border-radius: 30px;
+            margin-bottom: 40px;
+        display: none;
+            
+        }
+        .video-container .logo img {
+            width: 100px;
+            position: absolute;
+ 
+
+            
+         margin-bottom: 109%;
+        }
+
+        /* Style for the embedded video */
+        .video-container iframe {
+          
+    width: 100%;
+    height: 100%;
+  
+
+ border-radius: 30px;
+  
+    position: relative;
+            
+        }
+ 
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+  }
+  
+  
+  .card {
+    
+    width: var(--card-width);
+    height: var(--card-height);
+    
+    position: relative;
+    border-radius: 5%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    
+    
+    cursor: pointer;
+   
+  }
+  
+  .card:hover {
+   
+    transition: color 1s;
+  }
+  .card:hover:before, .card:hover:after {
+    animation: none;
+    opacity: 0;
+  }
+  
+  
+  .card::before {
+    content: "";
+    width: 104%;
+    height: 86%;
+    border-radius: 8px;
+    background-image: linear-gradient(
+      var(--rotate)
+      , #5ddcff, #3c67e3 43%, #4e00c2);
+      position: absolute;
+      z-index: -1;
+      top: -1%;
+      left: -2%;
+      right: -1%;
+      bottom: -5%;
+  
+      animation: spin 2.5s linear infinite;
+  }
+  
+  .card::after {
+  
+   
+   
+   
+    transform: scale(0.8);
+   
+  
+     
+    transition: opacity .5s;
+    animation: spin 2.5s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      --rotate: 0deg;
+    }
+    100% {
+      --rotate: 360deg;
+    }
+  }
+
+  .movie_bx_2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 20px;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+  /*Pagination*/
+  .pagination {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+
+}
+  .pagination li {
+    display: inline-block;
+    margin: 5px;
+}
+
+.pagination li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    line-height: 45px;
+}
+
+.previous-page,
+.next-page,
+.current-page,
+.dots {
+    background: #ccc;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.previous-page:hover,
+.next-page:hover {
+    background: #0ab1ce;
+    transform: scale(1.1);
+}
+
+.current-page {
+    background: #0ab1ce;
+    color: #fff;
+    font-weight: bold;
+}
+.pagination li.active {
+    background-color: #0AB1CE;
+    color: #fff;
+}
+
+  /*Pagination*/
+ 
+/* ----- Ignore this ---- */
+ 
+/* footer */
+ 
+ 
+/* Add your custom CSS styles here */
+ 
+
+.footer-clean {
+    padding: 50px 0px 0px 30px;
+    background-color: #282828;
+    color: #fff;
+}
+
+.footer-clean a {
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+.footer-clean a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-clean h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #66ccff;
+}
+
+.footer-clean p {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer-clean ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-clean ul li {
+    margin-bottom: 8px;
+}
+
+.footer-clean .social {
+    margin-top: 16px;
+}
+
+.footer-clean .icon-btn {
+    display: inline-block;
+    padding: 8px;
+    margin-right: 8px;
+    border: none;
+    background-color: transparent;
+    color: #141414;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.footer-clean .icon-btn:hover {
+    color: #201d1d;
+}
+
+.footer-clean .logo img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.footer-clean .item {
+    margin-bottom: 24px;
+}
+
+.footer-clean .item:last-child {
+    margin-bottom: 0;
+}
+
+.footer-clean .copyright {
+    font-size: 12px;
+    margin-top: 24px;
+   
+    font-weight: bold;
+
+    color: #b3b3b3;
+}
+
+/* footer  */
+
+.social {
+    align-items: center;
+    margin-top: 16px;
+}
+
+.social .icon-btn {
+    display: inline-block;
+    padding: 8px;
+    margin-right: 8px;
+    border: none;
+    background-color: rgb(248, 241, 241);
+    border-radius: 50%;
+    color: #292929;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+ 
+
+.social .icon-btn:hover {
+    
+    font-size: 12px;
+}
+.cato_bx .left_cato {
+   
+   height: 100px;
+   position: relative;
+   margin-top: 45px;
+}
+.cato_bx button {
+  
+  
+   color: #fff;
+   display: flex;
+   font-family: 'Poppins', sans-serif;
+   font-weight: 700;
+   font-size: 2rem;
+   margin-right: 10px;
+   
+  
+}  
+ 
+
+@media screen and (max-width: 990px) {
+    .nav-list {
+        display: none;
+
+    }
+     
+   
+    }
+
+        @media screen and (max-width: 966px) {
+            .dropdown_menu {
+                width: 70%;
+            }
+           
+            }
+
+     @media screen and (max-width: 630px) {
+        .movie_bx_2 .card {
+            width: 140px;
+            margin: 8px auto;
+            margin-right: 2%;
+        }  
+        header .content .moviepagecard img {
+    position: relative;
+    width: 190px;
+    margin-bottom: 1%;
+    border-radius: 20px;
+}
+header .content h1 {
+    font-size: 29px;
+    min-width: 15px;
+    line-height: 3%;
+    margin-bottom: 10px;
+    
+}
+header .ratediv h3 {
+    font-size: 22px;
+    margin: 20px 0px;
+    margin-top: 70px;
+}
+ 
+header .ratediv h3 span {
+   
+    font-size: 13px;
+   
+}
+header .content h6 {
+    
+    line-height: 5px;
+    margin-top: 18px;
+    
+    font-size: 14px;
+   
+}
+header .content .genrecontent {
+    padding: 5px 2px;
+    
+    word-spacing: 1px;
+   
+    margin-right: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+header .content .genrecontent h13 {
+    font-size: 24px;
+    line-height: 36px;
+   
+   
+}
+header .content .genrecontent h9 {
+    font-size: 24px;
+  
+   
+   
+}
+header .content .genrecontent h10 {
+    font-size: 24px;
+   
+   
+   
+}
+header .content .genrecontent h12 {
+    font-size: 24px;
+  
+   
+   
+}
+header .content .genrecontent h20 {
+    font-size: 24px;
+ 
+}
+header .content .genrecontent h15 {
+    font-size: 24px;
+    line-height: 1px;
+    font-weight: bolder;
+    margin-bottom: 10px 20px;
+    color: #fff;
+    transition: 1s linear;
+}
+header .content h8 {
+    font-size: 24px;
+    line-height: 26px;
+    
+}
+header .content p {
+  
+    font-size: 1rem;
+  
+}
+.cato_bx button {
+    color: #fff;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-right: 10px;
+}
+header .content .genrecontent a {
+  
+    font-size: 19px;
+    font-weight: 600;
+ 
+}
+header .content .btns button {
+    
+    padding: 5px 8px;
+    border-radius: 9px;
+    margin-right: 3px;
+    font-size: 8px;
+    font-weight: 600;
+ 
+
+}
+       
+     
+         }
+         @media screen and (max-width: 500px) {
+            .movie_bx_2 .card {
+                width: 120px;
+                margin: 10px auto;
+                margin-right: 2%;
+            }
+            header .content .moviepagecard img {
+    position: relative;
+    width: 190px;
+    margin-bottom: 1%;
+    border-radius: 20px;
+}
+header .content h1 {
+    font-size: 29px;
+    min-width: 15px;
+    line-height: 3%;
+    margin-bottom: 10px;
+    
+}
+header .ratediv h3 {
+    font-size: 22px;
+    margin: 20px 0px;
+    margin-top: 70px;
+}
+ 
+header .ratediv h3 span {
+   
+    font-size: 13px;
+   
+}
+header .content h6 {
+    
+    line-height: 5px;
+    margin-top: 18px;
+    
+    font-size: 14px;
+   
+}
+header .content .genrecontent {
+    padding: 5px 2px;
+    
+    word-spacing: 1px;
+   
+    margin-right: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+header .content .genrecontent h13 {
+    font-size: 24px;
+    line-height: 36px;
+   
+   
+}
+header .content .genrecontent h9 {
+    font-size: 24px;
+  
+   
+   
+}
+header .content .genrecontent h10 {
+    font-size: 24px;
+   
+   
+   
+}
+header .content .genrecontent h12 {
+    font-size: 24px;
+  
+   
+   
+}
+header .content .genrecontent h20 {
+    font-size: 24px;
+ 
+}
+header .content .genrecontent h15 {
+    font-size: 24px;
+    line-height: 1px;
+    font-weight: bolder;
+    margin-bottom: 10px 20px;
+    color: #fff;
+    transition: 1s linear;
+}
+header .content h8 {
+    font-size: 24px;
+    line-height: 26px;
+    
+}
+header .content p {
+  
+    font-size: 1rem;
+  
+}
+.cato_bx button {
+    color: #fff;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-right: 10px;
+}
+header .content .genrecontent a {
+  
+    font-size: 19px;
+    font-weight: 600;
+ 
+}
+header .content .btns button {
+    
+    padding: 5px 8px;
+    border-radius: 9px;
+    margin-right: 3px;
+    font-size: 8px;
+    font-weight: 600;
+ 
+
+}
+         }
+         @media screen and (max-width: 480px) {
+            .cato_bx button {
+                padding: 0px 17px;
+                background: red;
+                border: none;
+                outline: none;
+                color: #fff;
+                border-radius: 12px;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 500;
+                font-size: 12px;
+                margin-right: 8px;
+                cursor: pointer;
+                transition: .3s linear;
+            }
+       
+           
+            header .content .btns button {
+                padding: 6px 12px;
+                border-radius: 20px;
+                background: red;
+                border: 2px solid red;
+                color: #fff;
+                margin-right: 10px;
+                font-family: 'Poppins', sans-serif;
+                font-size: 9px;
+                font-weight: 600;
+                box-shadow: 0px 3px 10px red;
+                transition: .3s linear;
+                cursor: pointer;
+                z-index: 1;
+            }
+            .movie_bx_2 .card {
+                width: 111px;
+                margin: 12px auto;
+                margin-right: 2%;
+            }
+            .movie_bx_1 .card a .content h5 {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                font-weight: 700;
+                font-size: 10px;
+            }
+ 
+               
+            .c-nav-overlay {
+              
+                width: 70%;
+                
+            }
+                
+        }
+        @media screen and (max-width: 460px) {
+            .movie_bx_2 .card {
+                width: 130px;
+                margin: 12px auto;
+                margin-right: 2%;
+            }
+          
+         }
+         @media screen and (max-width: 420px) {
+    .dropdown_menu {
+        width: 93%;
+    }  
+    nav.sticky {
+    background: #918f8f;
+    height: 8%;
+}
+    .movie_bx_2 .card {
+        width: 111px;
+        margin: 12px auto;
+        margin-right: 2%;
+    }  
+    header .content .moviepagecard img {
+    position: relative;
+    width: 190px;
+    margin-bottom: 1%;
+    border-radius: 20px;
+}
+header .content h1 {
+    font-size: 29px;
+    min-width: 15px;
+    line-height: 3%;
+    margin-bottom: 10px;
+    
+}
+header .ratediv h3 {
+    font-size: 22px;
+    margin: 20px 0px;
+    margin-top: 70px;
+}
+ 
+header .ratediv h3 span {
+   
+    font-size: 13px;
+   
+}
+header .content h6 {
+    
+    line-height: 5px;
+    margin-top: 18px;
+    
+    font-size: 14px;
+   
+}
+header .content .genrecontent {
+    padding: 5px 2px;
+    
+    word-spacing: 1px;
+   
+    margin-right: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+ 
+    header .content .genrecontent h13 {
+    font-size: 15px;
+    line-height: 44px;
+}
+   
+   
+
+
+header .content .genrecontent h9 {
+        font-size: 15px;
+  
+   
+   
+}
+header .content .genrecontent h10 {
+        font-size: 15px;
+   
+   
+   
+}
+header .content .genrecontent h12 {
+        font-size: 15px;
+  
+   
+   
+}
+header .content .genrecontent h20 {
+       font-size: 15px;
+       line-height: 25px;
+}
+header .content .genrecontent h15 {
+       font-size: 15px;
+    line-height: 1px;
+    font-weight: bolder;
+    margin-bottom: 10px 20px;
+    color: #fff;
+    transition: 1s linear;
+}
+header .content h8 {
+       font-size: 15px;
+    line-height: 26px;
+    
+}
+header .content p {
+  
+     
+    font-size: .7rem;
+
+  
+}
+.cato_bx button {
+    color: #fff;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-right: 10px;
+}
+header .content .genrecontent a {
+    font-size: 12px;
+    font-weight: 600;
+} 
+header .content .btns button {
+    
+   font-size: 12px;
+ 
+
+}     
+     }
+
+         @media screen and (max-width: 390px) {
+            nav.sticky {
+                background: #918f8f;
+                height: 8%;
+            }
+           
+          
+            .c-nav-toggle {
+                color: #fff1f1;
+                font-size: 33px;
+                background-color: transparent;
+                border-radius: 70%;
+                border: none;
+                cursor: pointer;
+            }
+           
+           
+            .movie_bx_2 .card {
+                width: 120px;
+                margin: 12px auto;
+                margin-right: 2%;
+            }
+
+         }
+         @media screen and (max-width: 340px) {
+           
+          
+           
+            .movie_bx_2 .card {
+                width: 120px;
+                margin: 12px auto;
+                margin-right: 2%;
+            }
+            .movie_bx_1 .card a .content h5 {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                font-weight: 700;
+                font-size: 10px;
+            }
+            .movie_bx_1 .card a .content h6 .rate span {
+                background: rgb(255, 255, 30);
+                color: black;
+                padding: 0px 1px;
+                margin: 0px 0.2rem 0px 0px;
+                font-weight: 700;
+             
+                border-radius: 2px;
+            }
+            .movie_bx_1 .card a .content h6 .rate {
+                color: #ffff;
+                font-size: 0.4rem;
+
+            }
+            .cato_bx2 .left_cato button:nth-child(4), button:nth-child(5) {
+                padding: 0px 7px;
+                position: relative;
+                background: rgb(184, 184, 184, .1);
+            }
+            .c-nav-overlay {
+              
+                width: 70%;
+                
+            }
+         }
+        
+       
+         @media screen and (max-width: 341px) {
+            .movie_bx_2 .card {
+                width: 120px;
+                margin: 8px auto;
+                margin-right: 1%;
+            }
+            @media screen and (max-width: 340px) {
+            .movie_bx_2 .card {
+                width: 120px;
+                margin: 8px auto;
+                margin-right: 1%;
+            }
+   
+         }
+           
+         @media screen and (max-width: 338px) {
+            .movie_bx_2 .card {
+                width: 128px;
+                margin: 8px auto;
+                margin-right: 1%;
+            }
+         }
+                     }
+                     @media screen and (max-width: 312px) {
+                        .movie_bx_2 .card {
+                            width: 117px;
+                            margin: 8px auto;
+                            margin-right: 1%;
+                        }
+                                   
+          }
+        
+         @media screen and (max-width: 312px) {
+            .movie_bx_2 .card {
+                width: 117px;
+                margin: 8px auto;
+                margin-right: 1%;
+            }
+   
+         }
+         @media screen and (max-width: 304px) {
+            .movie_bx_2 .card {
+                width: 110px;
+                margin: 8px auto;
+                margin-right: 1%;
+            }
+      
+         }
+         @media screen and (max-width: 293px) {
+            .movie_bx_2 .card {
+                width: 90px;
+                margin: 12px auto;
+                margin-right: 2%;
+            }
+           
+  .card::before {
+    content: "";
+    width: 104%;
+    height: 75%;
+   
+      z-index: -1;
+      top: -1%;
+      left: -2%;
+      right: -1%;
+      bottom: -5%;
+  
+      animation: spin 2.5s linear infinite;
+  }
+  
+header nav {
+    height: 5%;
+}
+nav.sticky {
+    background: #918f8f;
+    height: 5%;
+}
+
+header nav .logo img {
+    width: 60px;
+    transition: width 0.2s ease;
+}
+header nav .logo img:hover {
+    width: 70px;
+}
+
+.c-nav-overlay {
+	 
+    
+    width: 100%;
+   
+   
+    transition: opacity 0.3s, visibility 0.9s;
+
+}
+ 
+ 
+.c-nav-toggle{
+     
+    font-size: 20px;
+ 
+    
+}
+.c-nav-overlay ul li a {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 9px;
+    text-decoration: none;
+    transition: .3s linear;
+   
+
+}
+.c-nav-overlay ul li a:hover {
+    color: rgba(219, 14, 127, 0.7);
+    font-size: 10px;
+     
+}
+.c-nav-overlay ul li .list-btn {
+    border-radius: 20px;
+    padding: 1px 1px;
+    border-color: none;
+
+}
+.c-nav-overlay ul li .list-btn  a {
+    color: black;
+    padding: .2rem 0.3rem;
+}
+.c-nav-overlay ul li .list-btn  a:hover {
+    color: rgba(219, 14, 127, 0.7);
+    font-size: 12px;
+    
+}
+header .content .moviepagecard img {
+    position: relative;
+    width: 122px;
+    margin-bottom: 1%;
+    border-radius: 20px;
+}
+header .content h1 {
+    font-size: 16px;
+    min-width: 15px;
+    line-height: 3%;
+    margin-bottom: 10px;
+    color: #fff;
+    transition: 1s linear;
+}
+header .ratediv h3 {
+ 
+    font-size: 20px;
+    margin: 20px 0px;
+    
+    margin-top: 47px;
+   
+}
+ 
+header .ratediv h3 span {
+    background-color: rgb(255, 255, 0);
+    color: rgb(0, 0, 0);
+    padding: 1px 2px 1px 2px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 12px;
+    transition: 1s linear;
+}
+header .content h6 {
+    
+    line-height: 5px;
+    margin-top: 11px;
+    
+    font-size: 10px;
+   
+}
+header .content .genrecontent {
+    padding: 5px 2px;
+    
+    word-spacing: 1px;
+   
+    margin-right: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+header .content .genrecontent h13 {
+    font-size: 17px;
+    line-height: 36px;
+   
+   
+}
+header .content .genrecontent h9 {
+    font-size: 17px;
+  
+   
+   
+}
+header .content .genrecontent h10 {
+    font-size: 17px;
+   
+   
+   
+}
+header .content .genrecontent h12 {
+    font-size: 17px;
+  
+   
+   
+}
+header .content .genrecontent h20 {
+    font-size: 17px;
+ 
+}
+header .content .genrecontent h15 {
+    font-size: 15px;
+    line-height: 1px;
+    font-weight: bolder;
+    margin-bottom: 10px 20px;
+    color: #fff;
+    transition: 1s linear;
+}
+header .content h8 {
+    font-size: 17px;
+    line-height: 26px;
+    
+}
+header .content p {
+  
+    font-size: 0.5rem;
+  
+}
+.cato_bx button {
+    color: #fff;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+header .content .genrecontent a {
+  
+    font-size: 11px;
+    font-weight: 600;
+ 
+}
+header .content .btns button {
+    padding: 3px 3px;
+    border-radius: 10px;
+    margin-right: 3px;
+    font-size: 7px;
+    font-weight: 600;
+}
+ 
+ 
+ 
+
+         }
+      
+         @media screen and (max-width: 248px) {
+            .movie_bx_2 .card {
+                width: 80px;
+                margin: 12px auto;
+                margin-right: 2%;
+            }
+           
+  .card::before {
+    content: "";
+    width: 104%;
+    height: 75%;
+   
+      z-index: -1;
+      top: -1%;
+      left: -2%;
+      right: -1%;
+      bottom: -5%;
+  
+      animation: spin 2.5s linear infinite;
+  } 
+header nav {
+    height: 5%;
+}
+nav.sticky {
+    background: #918f8f;
+    height: 5%;
+}
+
+header nav .logo img {
+    width: 60px;
+    transition: width 0.2s ease;
+}
+header nav .logo img:hover {
+    width: 70px;
+}
+
+.c-nav-overlay {
+	 
+    
+    width: 100%;
+   
+   
+    transition: opacity 0.3s, visibility 0.9s;
+
+}
+ 
+ 
+.c-nav-toggle{
+     
+    font-size: 20px;
+ 
+    
+}
+.c-nav-overlay ul li a {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 9px;
+    text-decoration: none;
+    transition: .3s linear;
+   
+
+}
+.c-nav-overlay ul li a:hover {
+    color: rgba(219, 14, 127, 0.7);
+    font-size: 10px;
+     
+}
+.c-nav-overlay ul li .list-btn {
+    border-radius: 20px;
+    padding: 1px 1px;
+    border-color: none;
+
+}
+.c-nav-overlay ul li .list-btn  a {
+    color: black;
+    padding: .2rem 0.3rem;
+}
+.c-nav-overlay ul li .list-btn  a:hover {
+    color: rgba(219, 14, 127, 0.7);
+    font-size: 12px;
+    
+}
+ 
+ 
+
+         }
+         @media screen and (max-width: 226px) {
+            .movie_bx_2 .card {
+                width: 70px;
+                margin: 12px auto;
+                margin-right: 2%;
+            }
+             
+  .card::before {
+    content: "";
+    width: 104%;
+    height: 75%;
+   
+      z-index: -1;
+      top: -1%;
+      left: -2%;
+      right: -1%;
+      bottom: -5%;
+  
+      animation: spin 2.5s linear infinite;
+  } 
+header nav {
+    height: 5%;
+}
+nav.sticky {
+    background: #918f8f;
+    height: 5%;
+}
+
+header nav .logo img {
+    width: 60px;
+    transition: width 0.2s ease;
+}
+header nav .logo img:hover {
+    width: 70px;
+}
+
+.c-nav-overlay {
+	 
+    
+    width: 100%;
+   
+   
+    transition: opacity 0.3s, visibility 0.9s;
+
+}
+ 
+ 
+.c-nav-toggle{
+     
+    font-size: 20px;
+ 
+    
+}
+.c-nav-overlay ul li a {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 9px;
+    text-decoration: none;
+    transition: .3s linear;
+   
+
+}
+.c-nav-overlay ul li a:hover {
+    color: rgba(219, 14, 127, 0.7);
+    font-size: 10px;
+     
+}
+.c-nav-overlay ul li .list-btn {
+    border-radius: 20px;
+    padding: 1px 1px;
+    border-color: none;
+
+}
+.c-nav-overlay ul li .list-btn  a {
+    color: black;
+    padding: .2rem 0.3rem;
+}
+.c-nav-overlay ul li .list-btn  a:hover {
+    color: rgba(219, 14, 127, 0.7);
+    font-size: 12px;
+    
+}
+   
+ 
+         }
+         @media screen and (max-width: 226px) {
+            .movie_bx_2 .card {
+                width: 70px;
+                margin: 12px auto;
+                margin-right: 2%;
+            }
+            
+  .card::before {
+    content: "";
+    width: 104%;
+    height: 75%;
+   
+      z-index: -1;
+      top: -1%;
+      left: -2%;
+      right: -1%;
+      bottom: -5%;
+  
+      animation: spin 2.5s linear infinite;
+  } 
+header nav {
+    height: 5%;
+}
+nav.sticky {
+    background: #918f8f;
+    height: 5%;
+}
+
+header nav .logo img {
+    width: 60px;
+    transition: width 0.2s ease;
+}
+header nav .logo img:hover {
+    width: 70px;
+}
+
+.c-nav-overlay {
+	 
+    
+    width: 100%;
+   
+   
+    transition: opacity 0.3s, visibility 0.9s;
+
+}
+ 
+ 
+.c-nav-toggle{
+     
+    font-size: 20px;
+ 
+    
+}
+.c-nav-overlay ul li a {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 9px;
+    text-decoration: none;
+    transition: .3s linear;
+   
+
+}
+.c-nav-overlay ul li a:hover {
+    color: rgba(219, 14, 127, 0.7);
+    font-size: 10px;
+     
+}
+.c-nav-overlay ul li .list-btn {
+    border-radius: 20px;
+    padding: 1px 1px;
+    border-color: none;
+
+}
+.c-nav-overlay ul li .list-btn  a {
+    color: black;
+    padding: .2rem 0.3rem;
+}
+.c-nav-overlay ul li .list-btn  a:hover {
+    color: rgba(219, 14, 127, 0.7);
+    font-size: 12px;
+    
+}
+ 
+ 
+
+         }
+         @media screen and (max-width: 190px) {
+            .movie_bx_2 .card {
+                width: 60px;
+                margin: 12px auto;
+                margin-right: 2%;
+            }
+            .card::before {
+               
+                width: 117%;
+                height: 73%;
+               
+                  top: -0%;
+                  left: -1%;
+                  right: -0%;
+                  bottom: -1%;
+              
+                  
+              }
+         
+  
+header nav {
+    height: 7%;
+}
+nav.sticky {
+    background: #918f8f;
+    height: 5%;
+}
+
+header nav .logo img {
+    width: 40px;
+    transition: width 0.2s ease;
+}
+header nav .logo img:hover {
+    width: 50px;
+}
+
+.c-nav-overlay {
+	 
+    
+    width: 100%;
+   
+   
+    transition: opacity 0.3s, visibility 0.9s;
+
+}
+ 
+ 
+.c-nav-toggle{
+     
+    font-size: 20px;
+ 
+    
+}
+.c-nav-overlay ul li a {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 8px;
+    text-decoration: none;
+    transition: .3s linear;
+   
+
+}
+.c-nav-overlay ul li a:hover {
+    color: rgba(219, 14, 127, 0.7);
+    font-size: 9px;
+     
+}
+.c-nav-overlay ul li .list-btn {
+    border-radius: 20px;
+    padding: 1px 1px;
+    border-color: none;
+
+}
+.c-nav-overlay ul li .list-btn  a {
+    color: black;
+    padding: .2rem 0.3rem;
+}
+.c-nav-overlay ul li .list-btn  a:hover {
+    color: rgba(219, 14, 127, 0.7);
+    font-size: 10px;
+    
+}
+
+.footer-clean {
+    padding: 0px 0px 0px 10px;
+   
+}
+ 
+ 
+
+.footer-clean h3 {
+    margin-top: 0;
+    margin-bottom: 0px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #66ccff;
+}
+
+.footer-clean p {
+    margin-bottom: 8px;
+    font-size: 8px;
+    line-height: 1.2;
+}
+
+ 
+
+.footer-clean ul li {
+    margin-bottom: 2px;
+}
+.footer-clean .social {
+    margin-top: 10px;
+}
+
+.footer-clean .icon-btn {
+    
+    padding: 4px;
+    margin-right: 4px;
+    border: none;
+   
+    
+}
+ 
+
+.footer-clean .logo img {
+    max-width: 90px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+ 
+
+ 
+
+.footer-clean .copyright {
+    font-size: 10px;
+  
+}
+
+/* footer  */
+
+.social {
+    
+    margin-top: 10px;
+}
+ 
+ 
+
+.social .icon-btn:hover {
+    
+    font-size: 10px;
+}
+/*Pagination*/
+  
+ 
+
+         }
+         @media screen and (max-width: 180px) {
+            .movie_bx_2 .card {
+                width: 130px;
+                margin: 12px auto;
+                margin-right: 2%;
+            }
+           
+  .card::before {
+    content: "";
+    width: 104%;
+    height: 86%;
+    border-radius: 8px;
+    background-image: linear-gradient(
+      var(--rotate)
+      , #5ddcff, #3c67e3 43%, #4e00c2);
+      position: absolute;
+      z-index: -1;
+      top: -1%;
+      left: -2%;
+      right: -1%;
+      bottom: -5%;
+  
+      animation: spin 2.5s linear infinite;
+  }
+  header .content .moviepagecard img {
+    position: relative;
+    width: 122px;
+    margin-bottom: 1%;
+    border-radius: 20px;
+}
+header .content h1 {
+    font-size: 16px;
+    min-width: 15px;
+    line-height: 3%;
+    margin-bottom: 10px;
+    color: #fff;
+    transition: 1s linear;
+}
+header .ratediv h3 {
+ 
+    font-size: 20px;
+    margin: 20px 0px;
+    
+    margin-top: 47px;
+   
+}
+ 
+header .ratediv h3 span {
+    background-color: rgb(255, 255, 0);
+    color: rgb(0, 0, 0);
+    padding: 1px 2px 1px 2px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 12px;
+    transition: 1s linear;
+}
+header .content h6 {
+    
+    line-height: 5px;
+    margin-top: 11px;
+    
+    font-size: 10px;
+   
+}
+header .content .genrecontent {
+    padding: 5px 2px;
+    
+    word-spacing: 1px;
+   
+    margin-right: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+header .content .genrecontent h13 {
+    font-size: 17px;
+    line-height: 36px;
+   
+   
+}
+header .content .genrecontent h9 {
+    font-size: 17px;
+  
+   
+   
+}
+header .content .genrecontent h10 {
+    font-size: 17px;
+   
+   
+   
+}
+header .content .genrecontent h12 {
+    font-size: 17px;
+  
+   
+   
+}
+header .content .genrecontent h20 {
+    font-size: 17px;
+ 
+}
+header .content .genrecontent h15 {
+    font-size: 15px;
+    line-height: 1px;
+    font-weight: bolder;
+    margin-bottom: 10px 20px;
+    color: #fff;
+    transition: 1s linear;
+}
+header .content h8 {
+    font-size: 17px;
+    line-height: 26px;
+    
+}
+header .content p {
+  
+    font-size: 0.5rem;
+  
+}
+.cato_bx button {
+    color: #fff;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+header .content .genrecontent a {
+  
+    font-size: 11px;
+    font-weight: 600;
+ 
+}
+header .content .btns button {
+    padding: 3px 3px;
+    border-radius: 10px;
+    margin-right: 3px;
+    font-size: 7px;
+    font-weight: 600;
+}
+}
+
+  /*html page of movie card style*/
+  @media screen and (max-width: 160px) {
+
+  header .content h1 {
+    font-size: 10px;
+    min-width: 15px;
+    line-height: 3%;
+    margin-bottom: 10px;
+    color: #fff;
+    transition: 1s linear;
+}
+
+  }
+
+
+
+
+
+
+
+
+
+
+ 
+  
+</style>
+
+    <header>
+
+        <div class="container">
+        <nav>
+            
+            <div class="c-nav-overlay" id="nav-overlay" role="navigation" aria-expanded="false">
+                <button type="button" name="close" class="c-nav-toggle c-nav-toggle--closer" id="nav-closer" aria-controls="nav-overlay">≡</button> 
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="movie.html">Movies</a></li>
+                    <li><a href="recaps.html">Recaps</a>
+                    </li>
+                    <li><a href="topimdb.html"> IMDB Top</a>
+
+                    <li><a href="series.html">Series</a>
+                        <div class="list">
+                            <button class="list-btn"> <a href="hollywood-series.html">Hollywood-Series</a></button>
+                            <button class="list-btn"> <a href="bollywood-series.html">Bollywood-Series</a></button>
+                            <button class="list-btn"> <a href="animated-series.html">Animated-Series</a></button>
+                            <button class="list-btn"> <a href="anime-series.html">Anime-Series</a></button>
+                           
+                         </div></li>
+                    <li>Category:
+                        <div class="list">
+                            <button class="list-btn"> <a href="trends.html">Trends Now</a></button>
+                            <button class="list-btn"> <a href="popular.html">Popular</a></button>
+                            <button class="list-btn"> <a href="hollywood.html">Hollywood</a></button>
+                            <button class="list-btn"> <a href="bollywood.html">Bollywood</a></button>
+                            <button class="list-btn"> <a href="south-indian.html">South-indian</a></button>
+                            <button class="list-btn"> <a href="kids.html">Kids</a></button>
+                            <button class="list-btn"> <a href="family.html">Family</a></button>
+
+                            <button class="list-btn"> <a href="animation.html">Animation</a></button>
+                            <button class="list-btn"> <a href="anime.html">Anime</a></button>
+                            <button class="list-btn"> <a href="tollywood.html">Tollywood</a></button>
+                            <button class="list-btn"> <a href="hollywood-dubbed.html">Hollywood-dubbed</a></button>
+                            <button class="list-btn"> <a href="hindi-dubbed.html">Hindi-Dubbed</a></button>
+                            <button class="list-btn"> <a href="south-dubbed.html">South-dubbed</a></button>
+
+                         </div>
+                    </li>
+                    <li>Genre:
+                        <div rgba(65, 43, 83, 0.7) class="list">
+                            <button class="list-btn" id="action"> <a href="action.html">Action</a></button>
+                            <button class="list-btn" id="crime"><a href="crime.html">Crime</a></button>
+                            <button class="list-btn" id="adventure"><a href="adventure.html">Adventure</a></button>
+                            <button class="list-btn" id="biography"><a href="biography.html">Biography</a></button>
+                            <button class="list-btn" id="comedy"><a href="comedy.html">Comady</a></button>
+                            <button class="list-btn" id="documentary"><a href="documentary.html">Documentary</a></button>
+                            <button class="list-btn" id="drama"><a href="drama.html">Drama</a></button>
+                            <button class="list-btn" id="webseries"><a href="webseries.html">WebSeries</a></button>
+                            <button class="list-btn" id="18+"><a href="+18.html">+18</a></button>
+                            <button class="list-btn" id="scifi"><a href="scifi.html">SciFi</a></button>
+                            <button class="list-btn" id="horror"><a href="horror.html">Horor</a></button>
+                            <button class="list-btn" id="thriller"><a href="thriller.html">Thriller</a></button>
+                            <button class="list-btn" id="mystery"><a href="mystery.html">Mystery</a></button>
+                            <button class="list-btn" id="action_adventure"><a href="action-adventure.html">Action + Adventure</a></button>
+                            <button class="list-btn" id="history"><a href="history.html">History</a></button>
+                            <button class="list-btn" id="war"><a href="war.html">War</a></button>
+                            <button class="list-btn" id="war"><a href="fantasy.html">Fantasy</a></button>
+                            <button class="list-btn" id="war"><a href="romance.html">Romance</a></button>
+                        </div>
+                    </li>
+                    <li>Country:
+                        <div rgba(65, 43, 83, 0.7) class="list">
+                            <button class="list-btn" > <a href="usa.html">USA</a></button>
+                            <button class="list-btn" ><a href="india.html">India</a></button>
+                            <button class="list-btn" ><a href="pakistan.html">Pakistan</a></button>
+                            <button class="list-btn" ><a href="spain.html">Spain</a></button>
+                            <button class="list-btn" ><a href="germany.html">Germany</a></button>
+                            <button class="list-btn" ><a href="australia.html">Australia</a></button>
+                            <button class="list-btn" ><a href="canada.html">Canada</a></button>
+                            <button class="list-btn" ><a href="russia.html">Russia</a></button>
+                            <button class="list-btn" ><a href="chaina.html">Chaina</a></button>
+                            <button class="list-btn" ><a href="europe.html">Europe</a></button>
+                            <button class="list-btn" ><a href="turkey.html">Turkey</a></button>
+                            <button class="list-btn" ><a href="korea.html">Korea</a></button>
+                            <button class="list-btn" ><a href="italy.html">Italy</a></button>
+                            <button class="list-btn" ><a href="uk.html">Uk</a></button>
+                            <button class="list-btn" ><a href="france.html">France</a></button>
+                            <button class="list-btn" ><a href="bangladesh.html">Bangladesh</a></button>
+                        </div>
+                    </li>
+                    <li>Language:
+                        <div rgba(65, 43, 83, 0.7) class="list">
+                            <button class="list-btn" > <a href="english.html">English</a></button>
+                            <button class="list-btn" ><a href="hindi.html">Hindi</a></button>
+                            <button class="list-btn" ><a href="punjabi.html">Punjabi</a></button>
+                            <button class="list-btn" ><a href="spanish.html">Spanish</a></button>
+                            <button class="list-btn" ><a href="german.html">German</a></button>
+                            <button class="list-btn" ><a href="chineese.html">chineese</a></button>
+                            <button class="list-btn" ><a href="canadian.html">Canadian</a></button>
+                            <button class="list-btn" ><a href="italian.html">italian</a></button>
+
+                            <button class="list-btn" ><a href="russian.html">Russian</a></button>
+                            <button class="list-btn" ><a href="urdu.html">Urdu</a></button>
+                            <button class="list-btn" ><a href="Arabic.html">Arabic</a></button>
+                            <button class="list-btn" ><a href="turkisk.html">Turkish</a></button>
+                            <button class="list-btn" ><a href="korean.html">Korean</a></button>
+                            <button class="list-btn" ><a href="japaneese.html">Japaneese</a></button>
+                            <button class="list-btn" ><a href="bangali.html">Bangali</a></button>
+                            <button class="list-btn" ><a href="tellugu.html">Tellugu</a></button>
+
+
+                        </div>
+                    </li>
+                </ul>
+                <div class="social">
+                    <h2>Follow Us</h2>
+                    <button class="icon-btn telegram"> 
+                    <a class="link" href="  t.me/hmovie1" target="_blank">
+                        <i class="bi bi-telegram "></i>
+                    </a>
+                    <button class="icon-btn facebook"> 
+                    <a class="link" href="https://www.facebook.com/100090446750530" target="_blank">
+                        <i class="fa fa-facebook"></i> 
+                    </a>
+                    <button class="icon-btn youtube"> 
+                    <a class="link" href="https://youtube.com/@animationrecap170" target="_blank">
+                        <i class="bi bi-youtube"></i> 
+                    </a>
+                    <button class="icon-btn tiktok"> 
+                    <a class="link" href="https://www.tiktok.com/@movie4512"  target="_blank">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+                    
+                </div>
+            </div>
+
+                <button type="button" name="open" class="c-nav-toggle c-nav-toggle--opener" id="nav-opener" aria-controls="nav-overlay">≡</button>
+        
+            
+            <a href="/" class="logo"><img src="img/logo.png" alt=""></a>
+            <div class="end_bx">
+                <div class="nav-list">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="movie.html">Movies</a></li>
+                        <li><a href="series.html" id="series" >Series</a></li>
+                        <li>Category <i class="fas fa-angle-down"></i>
+                            <div class="list">
+                                <a href="trends.html">Trends Now</a>
+                                <a href="popular.html">Popular</a>
+                                <a href="hollywood.html">Hollywood</a>
+                                <a href="bollywood.html">Bollywood</a>
+                                <a href="animation.html">Animation</a>
+                                <a href="anime.html">Anime</a>
+                                <a href="tollywood.html">Tollywood</a>
+
+                            </div>
+                        </li>
+                    </ul>
+                   
+
+                </div>               
+                <div class="search" id="search-container">
+                    <input type="text" placeholder="Search movies..." id="search">
+                    <i class="fas fa-search" id="search_icon"></i>
+                    <div class="search_bx2" id="search_results">
+                         <!--<a href="#">
+                            <img src="mimg/a perfact.jpg" alt="">
+                            <div class="content2">
+                                <h6>A Perfact</h6>
+                                <p>2018</p>
+                            </div>
+                        </a>-->
+                    </div>
+                </div>
+               <!-- <div class="bell">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="user">
+                  
+                     <img src="img/user.png" alt="Hast-Jutt" title="Hast-Jutt">
+                </div>-->
+            </div>
+        </nav>
+    </div>
+   
+   <div class="moviecardcontent">
+  
+    <div class="ratediv">
+            <h3 id="header_gen"><i class="fas fa-star">  </i>8.5/10 <span class ="imdb">IMDB</span>
+             </h3>
+             
+            </div>
+    <div class="content">
+      <div class="video-container">
+      
+        <!-- Replace 'YOUR_VIDEO_ID' with the actual video's ID -->
+
+        <iframe src="https://www.youtube.com/embed/ " frameborder="0" allowfullscreen></iframe>
+        <a href="/" class="logo"><img src="img/logo.png" alt=""></a>
+</div>
+
+        <div class="moviepagecard">
+            <img src="">
+
+        </div>
+        <h1 id="header_title">HMovie</h1>
+      
+        <h6>Duration: <span id="header_dur">N/A</span></h6>
+        <div class ="genrecontent">
+         <div>   <h13 >Type:</h13>
+        <a href="movie.html" id="type" class="type2"><span >HMovies</span></a> 
+         <a href="series.html" id="type" class="type3"><span > </span></a> 
+        <a href="animation.html" id="type" class="type4"><span > </span></a> 
+        <a href="animated-series.html" id="type" class="type5"><span > </span></a> 
+        <a href="anime.html" id="type" class="type6"><span > </span></a> 
+        <a href="anime-series.html" id="type" class="type7"> <span > </span></a>  
+        
+    </div>
+        <h9 >Language:</h9>
+        <a href="english.html" id="lang" class="lang1"><span>HMovies</span></a>
+        <a href="hindi.html" id="lang" class="lang2"><span> </span></a>
+        <a href="punjabi.html" id="lang" class="lang3"><span> </span></a>
+        <a href="spanish.html" id="lang" class="lang4"><span> </span></a>
+        <a href="urdu" id="lang" class="lang5"><span> </span></a>
+        <a href="german" id="lang" class="lang6"><span> </span></a>
+        <a href="chineese.html" id="lang" class="lang7"><span> </span></a>
+        <a href="bangali.html" id="lang" class="lang8"><span> </span></a>
+        <a href="tellugu.html" id="lang" class="lang9"><span> </span></a>
+        <a href="Arabic.html" id="lang" class="lang10"><span> </span></a>
+        <a href="turkisk.html" id="lang" class="lang11"><span> </span></a>
+        <a href="canadian.html" id="lang" class="lang12"><span> </span></a>
+        <a href="russian.html" id="lang" class="lang13"><span> </span></a>
+        <a href="italian.html" id="lang" class="lang14"><span> </span></a>
+        <a href="japaneese.html" id="lang" class="lang15"><span> </span></a>
+        <a href="korean.html" id="lang" class="lang16"><span> </span></a> 
+
+            </div>   
+     
+          
+       
+        
+       
+        <div class="btns">
+            <a href="#"   target="_blank"> <button ><i class="fas fa-play" id="watch_url" ></i> WATCH</button></a>
+            
+
+            <a href="#"  target="_blank"><button><i class="fas fa-download" id="high"></i> Download Full HD</button></a>
+            <a href="#"  target="_blank"><button><i class="fas fa-download" id="medium"></i> Download 720p</button></a>
+            <a href="#"  target="_blank"><button><i class="fas fa-download" id="low"></i> Download 480p</button></a>
+            <a href="#"  target="_blank"><button><i class="fas bi-youtube" id="recap"></i> Recap</button></a>
+            <a href="#"  target="_blank"><button><i class="fas fa-video" id="trailer"></i> </button></a>
+
+
+        </div>        <div class ="genrecontent">,
+        <h20>Genre:</h0>
+        <a href="action.html" id="genre" class="genre1"><span>Hmovie</span></a>
+        <a href="crime.html" id="genre" class="genre2"><span>N/A </span></a>
+        <a href="adventure.html" id="genre" class="genre3"><span> </span></a>
+        <a href="biography.html" id="genre" class="genre4"><span> </span></a>
+        
+        <a href="animation.html" id="genre" class="genre5"><span> </span></a>
+        <a href="comedy.html" id="genre" class="genre6"><span> </span></a>
+        
+        <a href="documentary.html" id="genre" class="genre7"><span> </span></a>
+        <a href="drama.html" id="genre" class="genre8"><span> </span></a>
+        
+        <a href="webseries.html" id="genre" class="genre9"><span> </span></a>
+        <a href="+18.html" id="genre" class="genre10"><span> </span></a>
+        
+        <a href="scifi.html" id="genre" class="genre11"><span> </span></a>
+        <a href="horror.html" id="genre" class="genre12"><span> </span></a>
+        
+        <a href="thriller.html" id="genre" class="genre13"><span> </span></a>
+        <a href="mystery.html" id="genre" class="genre14"><span> </span></a>
+        
+        <a href="action-adventure.html" id="genre" class="genre15"><span> </span></a>
+        <a href="fantasy.html" id="genre" class="genre16"><span> </span></a>
+        
+        <a href="history.html" id="genre" class="genre17"><span> </span></a>
+        <a href="war.html" id="genre" class="genre18"><span> </span></a>
+        
+        <a href="romance.html" id="genre" class="genre19"><span> </span></a>
+        
+
+        
+
+
+        
+        
+      
+        </div> 
+        <div class ="genrecontent">
+          <div>  <h10>Country:</h10>
+        <a href="pakistan.html" id="countri" class="countri1"><span>HMovies</span></a>
+        <a href="india.html" id="countri" class="countri2"><span> </span></a>
+        <a href="chaina.html" id="countri" class="countri3"><span> </span></a>
+        <a href="russia.html" id="countri" class="countri4"><span> </span></a>
+        <a href="usa.html" id="countri" class="countri5"><span> </span></a>
+        <a href="france.html" id="countri" class="countri6"><span> </span></a>
+        <a href="italy.html" id="countri" class="countri8"><span> </span></a>
+        <a href="uk.html" id="countri" class="countri9"><span> </span></a>
+        <a href="spain.html" id="countri" class="countri10"><span> </span></a>
+        <a href="canada.html" id="countri" class="countri11"><span> </span></a>
+        <a href="bangladesh.html" id="countri" class="countri12"><span> </span></a>
+        <a href="europe.html" id="countri" class="countri13"><span> </span></a>
+        <a href="turkey.html" id="countri" class="countri14"><span> </span></a>
+        <a href="russian.html" id="countri" class="countri15"><span> </span></a>
+        <a href="korea.html" id="countri" class="countri16"><span> </span></a>
+        <a href="australia.html" id="countri" class="countri17"><span> </span></a>
+        <a href="german.html" id="countri" class="countri18"><span> </span></a></div>
+
+        <h12>Year:</h12>
+        <a href="#" id="year"><span>N/A</span></a>
+            </div>
+            <div class="genrecontent">
+  <h15>Stars:</h15>
+  <a href="#" id="star" class="star"><span>N/A</span></a>
+</div>
+
+        <h8>Description:</h8>
+         
+
+        <p id="header_pra">From Wikipedia, the free encyclopedia Rampage is a series of video games released by Midway (1986–2009) and Warner Bros. Interactive Entertainment (2009–present) for the arcade and various consoles. The basic premise of the games is that,
+            due to experiment-related accidents, the player controls a human transformed into a giant monster.</p>
+        
+            <h8>Tags:</h8>
+         
+
+         <p id="tag_pra">From, Wikipedia, the, free, encyclopedia, Rampage, is, a ,series, of, video, games, released, by, Midway, (1986–2009) and, Warner, Bros,. Interactive,</p>
+               
+           
+    </div>
+    </div>
+        
+</div>
+
+        </header>
+
+   
+  
+       
+<!-- HTML code to embed the YouTube video -->
+<!--<iframe width="360" height="115" src="https://www.youtube.com/embed/QQYeipc_cik" frameborder="0" allowfullscreen></iframe>-->
+
+       
+    </header>
+   
+    
+    <!-- trending box start  -->
+    
+
+   
+      
+    <!-- movies box strat  -->
+  
+    <!-- movies box end  -->
+ 
+    <!-- video box end  -->
+
+    <!-- trending box2 start  -->
+ 
+    <div class="cato_bx cato_bx2">
+        <div class="left_cato">
+          
+            <button id="all_btn" class="top-btn">|| May You Like:</button>
+           
+            </div>
+        
+    </div>
+    <div class="genre" data-genre="action"></div>
+    <div class="genre" data-genre="crime"></div>
+        <div class="genre " data-genre="adventure"></div>
+        <div class="genre " data-genre="biography"></div>
+        <div class="genre " data-genre="animation"></div>
+        <div class="genre " data-genre="comedy"></div>
+        <div class="genre " data-genre="documentry"></div>
+        <div class="genre " data-genre="drama"></div>
+        <div class="genre " data-genre="webseries"></div>
+        <div class="genre " data-genre="+18"></div>
+        <div class="genre " data-genre="scifi"></div>
+        <div class="genre " data-genre="horror"></div>
+        <div class="genre " data-genre="thriller"></div>
+        <div class="genre " data-genre="mystery"></div>
+        <div class="genre " data-genre="action-adventure"></div>
+        <div class="genre " data-genre="fantasy"></div>
+        <div class="genre " data-genre="history"></div>
+        <div class="genre " data-genre="war"></div>
+        <div class="genre " data-genre="romance"></div>
+
+
+
+        
+
+
+    <div class="movie_bx_1 movie_bx_2">
+        <div class="all box2_actives" id="all"></div>
+        <div class="latest box2_actives" id="latest"></div>
+        <!-- Genre containers -->
+        
+
+        
+        <!-- <div class="card">
+            <a href="#">
+                <img src="mimg/abcd.jpg" alt="">
+                <div class="content">
+                    <h5>ABCD</h5>
+                    <h6>
+                        <span>2017</span>
+                        <div class="rate">
+                            <i class="bi bi-star-fill"></i>
+                            <span class ="imdb">IMDB</span>
+                            <h6>8.3</h6>
+                        </div>
+                    </h6>
+                </div>
+            </a>
+        </div>
+        <div class="card">
+            <a href="#">
+                <img src="mimg/a perfact.jpg" alt="">
+                <div class="content">
+                    <h5>A Perfact</h5>
+                    <h6>
+                        <span>2020</span>
+                        <div class="rate">
+                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-eye"></i>
+                            <i class="fas fa-star"></i>
+                            <h6>9.2</h6>
+                        </div>
+                    </h6>
+                </div>
+            </a>
+        
+        </div> -->
+        
+        <div class="movie-container" id="movieContainer"></div>
+    </div>
+    <div id="viewMoreContainer">
+        <button id="viewMore" class="loading-btn"><div class="spinner-border text-secondary" role="status"></div> <span class="button-text">View More</span></button>
+
+
+</div>
+
+   
+
+      <div class="footer-clean">
+        <footer>
+            <div class="container">
+                <a href="/" class="logo"><img src="img/logo.png" alt=""></a>
+                <div class="row ">
+                    
+                  
+                    <div class="col-sm-4 col-md-3 item">
+                        <h3>About</h3>
+                        <div class="pdiv"> <p>
+                            My name is HMovie. Here you can watch all Movies and series.
+                            This is fisrt site which are totally free and no ad you are seen on this website.
+                            Thank you for your patience.
+                         </p></div>
+                       
+                    </div>
+                    <div class="col-sm-41 col-md-3 item">
+                        <h3>Category</h3>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="movies.html">Movies</a></li>
+                            <li><a href="series.html">Series</a></li>
+                        </ul>
+                        <div class="social">
+                            <h2>Follow Us</h2>
+                            <button class="icon-btn telegram"> 
+                            <a class="link" href="t.me/hmovie1"alt="Telegram" target="_blank">
+                                  <i class="bi bi-telegram"></i>  
+                            </a>
+                            <button class="icon-btn facebook"> 
+                            <a class="link" href="https://www.facebook.com/100090446750530" target="_blank">
+                                <i class="fa fa-facebook"></i> 
+                            </a>
+                            <button class="icon-btn youtube"> 
+                            <a class="link" href="https://youtube.com/@animationrecap170" target="_blank">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                            <button class="icon-btn tiktok"> 
+                            <a class="link" href="https://www.tiktok.com/@movie4512"  target="_blank">
+                                <i class="bi bi-tiktok"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-3 item social">
+                        <p class="copyright">All Copyright Reserved© 2020</p>
+                      
+                    </div>
+                    
+                </div>
+              
+            </div>
+        </footer>
+    </div>
+    <script>
+        
+
+
+///
+
+// Add a class to the nav element when scrolling down to make it sticky
+window.addEventListener("scroll", function() {
+  var nav = document.querySelector("nav");
+  nav.classList.toggle('sticky', window.scrollY > 0);
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Get the navigation elements
+  const navOpener = document.getElementById("nav-opener");
+  const navCloser = document.getElementById("nav-closer");
+  const navOverlay = document.getElementById("nav-overlay");
+  const contentContainer = document.querySelector(".content-container");
+
+  // Open the sidebar when the opener button is clicked
+  navOpener.addEventListener("click", function() {
+    navOverlay.classList.add("c-nav-overlay--open");
+    document.body.classList.add("is-overlay-open");
+    navOverlay.setAttribute("aria-expanded", "true");
+    trapFocus(navOverlay); // You should have a separate function called trapFocus that manages the focus behavior
+  });
+
+  // Close the sidebar when the closer button is clicked
+  navCloser.addEventListener("click", function() {
+    navOverlay.classList.remove("c-nav-overlay--open");
+    document.body.classList.remove("is-overlay-open");
+    navOverlay.setAttribute("aria-expanded", "false");
+    document.getElementById("nav-opener").focus();
+  });
+
+  // Close the sidebar when clicking outside of it
+  document.addEventListener("click", function(event) {
+    if (!navOverlay.contains(event.target) && event.target !== navOpener) {
+      closeSidebar(); // You should have a separate function called closeSidebar that handles the closing logic
+    }
+  });
+
+  // Close the sidebar when scrolling
+  window.addEventListener("scroll", function() {
+    if (navOverlay.classList.contains("c-nav-overlay--open")) {
+      closeSidebar();
+    }
+  });
+});
+
+// Function to trap focus inside a specific element (e.g., sidebar)
+function trapFocus(element) {
+  // Your focus-trapping logic goes here
+}
+
+// Function to close the sidebar
+function closeSidebar() {
+  navOverlay.classList.remove("c-nav-overlay--open");
+  document.body.classList.remove("is-overlay-open");
+  navOverlay.setAttribute("aria-expanded", "false");
+}
+
+/* 
+    onclick functions to launch the overlay and toggle the required classes
+*/
+let json_url = "movie.json";
+let addedTitles = []; // Array to store added movie titles
+let displayedCards = 12; // Number of initially displayed movie cards
+const cardsPerLoad = 6; // Number of additional cards to load each time
+
+const all = document.getElementById("all");
+const viewMoreButton = document.getElementById("viewMore");
+
+// Manually specify the desired genre numbers you want to filter by
+const desiredGenreNumbers = [ 1 ]; // Replace with the desired genre numbers
+
+fetch(json_url)
+  .then(Response => Response.json())
+  .then((data) => {
+    // Sort the data array by year in descending order
+data.sort((a, b) => b.year - a.year);
+
+    viewMoreButton.addEventListener("click", () => {
+      const endIndex = displayedCards + cardsPerLoad;
+      displayMovieCards(displayedCards, endIndex, data);
+      displayedCards = endIndex;
+      if (displayedCards >= data.length) {
+        viewMoreButton.style.display = "none";
+      }
+    });
+
+    displayMovieCards(0, displayedCards, data);
+    if (displayedCards >= data.length) {
+      viewMoreButton.style.display = "none";
+    }
+  });
+
+function displayMovieCards(startIndex, endIndex, moviesData) {
+  for (let i = startIndex; i < endIndex && i < moviesData.length; i++) {
+    const element = moviesData[i];
+    const { img, title, year, url, rate } = element;
+
+    if (desiredGenreNumbers.some(desiredNumber => element[`genre${desiredNumber}`] !== "none") && !addedTitles.includes(title)) {
+      const headerMovie = document.querySelector(".header .card a[href='" + url + "']");
+      if (!headerMovie) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        addedTitles.push(  "Baaghi 2");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        let card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+          <a href="${url}">
+              <img src="${img}" alt="${title}">
+              <div class="content">
+                  <h5>${title}</h5>
+                  <h6>
+                      <span>${year}</span>
+                      <div class="rate">
+                      <span>IMDB</span>
+                      <i class="bi bi-star-fill"></i>
+                          <h6>${rate}</h6>
+                      </div>
+                  </h6>
+              </div>
+          </a>
+        `;
+
+        all.appendChild(card);
+      }
+    }
+  }
+}
+
+
+fetch(json_url)
+  .then(Response => Response.json())
+  .then((data) => {
+    // Sort the data array by year in descending order
+data.sort((a, b) => b.year - a.year);
+
+
+    // ... (previous code)
+
+viewMoreButton.addEventListener("click", () => {
+  const buttonText = viewMoreButton.querySelector(".button-text");
+  const spinner = viewMoreButton.querySelector(".spinner-border");
+  buttonText.style.display = "none"; // Hide the button text
+  spinner.style.display = "inline-block"; // Show the spinner
+  viewMoreButton.classList.add("loading"); // Add the loading class
+
+  const endIndex = displayedCards + cardsPerLoad;
+  displayMovieCards(displayedCards, endIndex, data);
+  displayedCards = endIndex;
+  if (displayedCards >= data.length) {
+    viewMoreButton.style.display = "none";
+  }
+  
+  setTimeout(() => {
+    viewMoreButton.classList.remove("loading"); // Remove the loading class
+    buttonText.style.display = "inline"; // Show the button text
+    spinner.style.display = "none"; // Hide the spinner
+    spinner.style.color = "#fff";
+    window.scrollTo({
+      top: all.offsetTop, // Scroll to the top of the movie container
+      behavior: "smooth" // Use smooth scrolling behavior
+    });
+  }, 1000); // Remove the loading class after 1 second (adjust as needed)
+});
+
+// ... (previous code)
+
+
+
+
+    //search bar//
+let search = document.getElementById('search');
+let searchIcon = document.getElementById('search_icon');
+let searchContainer = document.querySelector('.search');
+let searchResults = document.querySelector('.search_bx2');
+
+searchIcon.addEventListener('click', () => {
+    search.classList.toggle('search_input');
+});
+let search_bx2 = document.getElementsByClassName('search_bx2')[0];
+
+
+data.forEach(element => {
+let { img, title, year, url } = element;
+
+let card = document.createElement('a');
+card.href = url;
+card.innerHTML = ` <img src="${img}" alt="">
+<div class="content2">
+    <h6>${title}</h6>
+    <p>${year}</p>
+</div>`;
+search_bx2.appendChild(card);
+});
+search.addEventListener('keyup', () => {
+    let filter = search.value.toUpperCase();
+    let a = searchResults.getElementsByTagName('a');
+    
+    for (let i = 0; i < a.length; i++) {
+        let b = a[i].getElementsByClassName('content2')[0];
+        
+        let textValue = b.textContent || b.innerText;
+        
+        if (textValue.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = '';
+            searchResults.style.visibility = "visible";
+            searchResults.style.opacity = 1;
+        } else {
+            a[i].style.display = 'none';
+        }
+        
+        if (search.value == 0) {
+            searchResults.style.visibility = "hidden";
+            searchResults.style.opacity = 0;
+        }
+    }
+    
+    if (filteredData.length === 0) {
+        const noResults = document.createElement('div');
+        noResults.classList.add('no-results');
+        noResults.innerText = 'No results found';
+        searchResults.appendChild(noResults);
+    }
+});
+
+window.addEventListener('click', (event) => {
+    if (!searchContainer.contains(event.target) && !searchIcon.contains(event.target)) {
+        closeSearch();
+    }
+});
+
+search.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+    }
+});
+
+function closeSearch() {
+    searchResults.style.visibility = "hidden";
+    searchResults.style.opacity = 0;
+}
+
+   //search filter
+
+ 
+ 
+
+
+
+
+
+
+});
+
+ 
+//download movie pages 
+// Fetch data from JSON file for header section
+fetch('movie.json')
+    .then(response => response.json())
+    .then(data => {
+        const header_gen = document.getElementById('header_gen');
+        const header_title = document.getElementById('header_title');
+        const header_dur = document.getElementById('header_dur');
+        const type = document.getElementById('type');
+        const lang = document.getElementById('lang');
+        const countri = document.getElementById('countri');
+        const genre = document.getElementById('genre');
+        const star = document.getElementById('star');
+
+
+        const year = document.getElementById('year');
+        const header_pra = document.getElementById('header_pra');
+        const header_tag = document.getElementById('tag_pra');
+      
+
+        
+        const highQualityBtn = document.getElementById('high');
+        const mediumQualityBtn = document.getElementById('medium');
+        const lowQualityBtn = document.getElementById('low');
+        const recapBtn = document.getElementById('recap');
+        const trailerBtn = document.getElementById('trailer');
+        const watchBtn = document.getElementById('watch_url');
+        const headerImage = document.querySelector('.moviepagecard img');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // Define the title of the movie you want to display
+        const movieTitle =  "Baaghi 2" ; // Replace this with the desired title
+
+        // Find the movie with the specified title
+        const movie = data.find(item => item.title === movieTitle);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (movie) {
+            // Populate header elements with data
+            header_gen.innerHTML = `<i class="fas fa-star"></i>${movie.rate}/10 <span class="imdb">IMDB</span>`;
+            header_title.textContent = movie.title;
+            header_dur.textContent = movie.dur;
+            star.textContent = movie.star;
+
+         
+
+
+            // Fetch language value from JSON and set href attribute based on class name
+            for (let i = 1; i <= 16; i++) {
+                const langValue = movie[`lang${i}`];
+                if (langValue && langValue.toLowerCase() !== 'none') {
+                    const langLink = document.querySelector(`.lang${i}`);
+                    if (langLink) {
+                        langLink.setAttribute('href', langValue + '.html');
+                        langLink.querySelector('span').textContent = langValue.charAt(0).toUpperCase() + langValue.slice(1);
+                    }
+                } else {
+                    // Hide language links with no value in JSON
+                    const langLink = document.querySelector(`.lang${i}`);
+                    if (langLink) {
+                        langLink.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Fetch Genre value from JSON and set href attribute based on class name
+            for (let i = 1; i <= 19; i++) {
+                const genreValue = movie[`genre${i}`];
+                if (genreValue && genreValue.toLowerCase() !== 'none') {
+                    const genreLink = document.querySelector(`.genre${i}`);
+                    if (genreLink) {
+                        genreLink.setAttribute('href', genreValue + '.html');
+                        genreLink.querySelector('span').textContent = genreValue.charAt(0).toUpperCase() + genreValue.slice(1);
+                    }
+                } else {
+                    // Hide genre links with no value in JSON
+                    const genreLink = document.querySelector(`.genre${i}`);
+                    if (genreLink) {
+                        genreLink.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Fetch type value from JSON and set href attribute based on class name
+            for (let i = 2; i <= 7; i++) {
+                const typeValue = movie[`type${i}`];
+                if (typeValue && typeValue.toLowerCase() !== 'none') {
+                    const typeLink = document.querySelector(`.type${i}`);
+                    if (typeLink) {
+                        typeLink.setAttribute('href', typeValue + '.html');
+                        typeLink.querySelector('span').textContent = typeValue.charAt(0).toUpperCase() + typeValue.slice(1);
+                    }
+                } else {
+                    // Hide type links with no value in JSON
+                    const typeLink = document.querySelector(`.type${i}`);
+                    if (typeLink) {
+                        typeLink.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Fetch country value from JSON and set href attribute based on class name
+            for (let i = 1; i <= 18; i++) {
+                const countryValue = movie[`countri${i}`];
+                if (countryValue && countryValue.toLowerCase() !== 'none') {
+                    const countryLink = document.querySelector(`.countri${i}`);
+                    if (countryLink) {
+                        countryLink.setAttribute('href', countryValue + '.html');
+                        countryLink.querySelector('span').textContent = countryValue.charAt(0).toUpperCase() + countryValue.slice(1);
+                    }
+                } else {
+                    // Hide country links with no value in JSON
+                    const countryLink = document.querySelector(`.countri${i}`);
+                    if (countryLink) {
+                        countryLink.style.display = 'none';
+                    }
+                }
+            }
+            
+             
+            if (movie) {
+    watchBtn.setAttribute('href', movie.watch_url);
+    watchBtn.setAttribute('onclick', 'window.open(this.href, "_blank"); return false;');
+
+    highQualityBtn.setAttribute('href', movie.high);
+    highQualityBtn.setAttribute('target', '_blank'); // Open link in new tab
+    mediumQualityBtn.setAttribute('href', movie.medium);
+    mediumQualityBtn.setAttribute('target', '_blank'); // Open link in new tab
+    lowQualityBtn.setAttribute('href', movie.low);
+    lowQualityBtn.setAttribute('target', '_blank'); // Open link in new tab
+   
+   
+  
+    
+}
+ 
+            // Populate other header elements with data
+            year.innerHTML = `<span>${movie.year}</span>`;
+            header_pra.textContent = movie.header_pra;
+            header_tag.textContent = movie.header_tag;
+            headerImage.src = movie.img;
+            
+            // ... continue with the rest of your code
+           
+          
+        } else {
+            console.error('Movie not found.');
+        }
+    });
+   
+
+</script>
+
+
+</body>
+
+</html>

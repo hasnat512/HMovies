@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap cdn link  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- font-awesome cdn link  -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+    <title>HMovie</title>
+</head>
+<body>
+    <style>
+.cato_bx .left_cato {
+   
+    height: 100px;
+    position: relative;
+    margin-top: 45px;
+}
+.cato_bx button {
+   
+   
+    color: #fff;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-right: 10px;
+    
+   
+}  
+@media screen and (max-width: 671px) {
+    .cato_bx button {
+   
+   
+   color: #fff;
+   display: flex;
+   font-family: 'Poppins', sans-serif;
+   font-weight: 700;
+   font-size: 1.6rem;
+   margin-right: 10px;
+   
+  
+}  
+}
+@media screen and (max-width: 671px) {
+    .cato_bx button {
+   
+   
+   color: #fff;
+   display: flex;
+   font-family: 'Poppins', sans-serif;
+   font-weight: 700;
+   font-size: 1.2rem;
+   margin-right: 10px;
+   
+  
+}
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+ /* styles.css */
+ 
+ 
+ 
+
+  
+
+/* Style for the overlay */
+ 
+    </style>
+  <header>
+    <div class="container">
+        <nav>
+            
+            <div class="c-nav-overlay" id="nav-overlay" role="navigation" aria-expanded="false">
+                <button type="button" name="close" class="c-nav-toggle c-nav-toggle--closer" id="nav-closer" aria-controls="nav-overlay">≡</button> 
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="movie.html">Movies</a></li>
+                    <li><a href="recaps.html">Recaps</a>
+                    </li>
+                    <li><a href="topimdb.html"> IMDB Top</a>
+
+                    <li><a href="series.html">Series</a>
+                        <div class="list">
+                            <button class="list-btn"> <a href="hollywood-series.html">Hollywood-Series</a></button>
+                            <button class="list-btn"> <a href="bollywood-series.html">Bollywood-Series</a></button>
+                            <button class="list-btn"> <a href="animated-series.html">Animated-Series</a></button>
+                            <button class="list-btn"> <a href="anime-series.html">Anime-Series</a></button>
+                           
+                         </div></li>
+                    <li>Category:
+                        <div class="list">
+                            <button class="list-btn"> <a href="trends.html">Trends Now</a></button>
+                            <button class="list-btn"> <a href="popular.html">Popular</a></button>
+                            <button class="list-btn"> <a href="hollywood.html">Hollywood</a></button>
+                            <button class="list-btn"> <a href="bollywood.html">Bollywood</a></button>
+                            <button class="list-btn"> <a href="south-indian.html">South-indian</a></button>
+                            <button class="list-btn"> <a href="kids.html">Kids</a></button>
+                            <button class="list-btn"> <a href="family.html">Family</a></button>
+
+                            <button class="list-btn"> <a href="animation.html">Animation</a></button>
+                            <button class="list-btn"> <a href="anime.html">Anime</a></button>
+                            <button class="list-btn"> <a href="tollywood.html">Tollywood</a></button>
+                            <button class="list-btn"> <a href="hollywood-dubbed.html">Hollywood-dubbed</a></button>
+                            <button class="list-btn"> <a href="hindi-dubbed.html">Hindi-Dubbed</a></button>
+                            <button class="list-btn"> <a href="south-dubbed.html">South-dubbed</a></button>
+
+                         </div>
+                    </li>
+                    <li>Genre:
+                        <div rgba(65, 43, 83, 0.7) class="list">
+                            <button class="list-btn" id="action"> <a href="action.html">Action</a></button>
+                            <button class="list-btn" id="crime"><a href="crime.html">Crime</a></button>
+                            <button class="list-btn" id="adventure"><a href="adventure.html">Adventure</a></button>
+                            <button class="list-btn" id="biography"><a href="biography.html">Biography</a></button>
+                            <button class="list-btn" id="comedy"><a href="comedy.html">Comady</a></button>
+                            <button class="list-btn" id="documentary"><a href="documentary.html">Documentary</a></button>
+                            <button class="list-btn" id="drama"><a href="drama.html">Drama</a></button>
+                            <button class="list-btn" id="webseries"><a href="webseries.html">WebSeries</a></button>
+                            <button class="list-btn" id="18+"><a href="+18.html">+18</a></button>
+                            <button class="list-btn" id="scifi"><a href="scifi.html">SciFi</a></button>
+                            <button class="list-btn" id="horror"><a href="horror.html">Horor</a></button>
+                            <button class="list-btn" id="thriller"><a href="thriller.html">Thriller</a></button>
+                            <button class="list-btn" id="mystery"><a href="mystery.html">Mystery</a></button>
+                            <button class="list-btn" id="action_adventure"><a href="action-adventure.html">Action + Adventure</a></button>
+                            <button class="list-btn" id="history"><a href="history.html">History</a></button>
+                            <button class="list-btn" id="war"><a href="war.html">War</a></button>
+                            <button class="list-btn" id="war"><a href="fantasy.html">Fantasy</a></button>
+                            <button class="list-btn" id="war"><a href="romance.html">Romance</a></button>
+
+
+                        </div>
+                    </li>
+                    <li>Country:
+                        <div rgba(65, 43, 83, 0.7) class="list">
+                            <button class="list-btn" > <a href="usa.html">USA</a></button>
+                            <button class="list-btn" ><a href="india.html">India</a></button>
+                            <button class="list-btn" ><a href="pakistan.html">Pakistan</a></button>
+                            <button class="list-btn" ><a href="spain.html">Spain</a></button>
+                            <button class="list-btn" ><a href="germany.html">Germany</a></button>
+                            <button class="list-btn" ><a href="australia.html">Australia</a></button>
+                            <button class="list-btn" ><a href="canada.html">Canada</a></button>
+                            <button class="list-btn" ><a href="russia.html">Russia</a></button>
+                            <button class="list-btn" ><a href="chaina.html">Chaina</a></button>
+                            <button class="list-btn" ><a href="europe.html">Europe</a></button>
+                            <button class="list-btn" ><a href="turkey.html">Turkey</a></button>
+                            <button class="list-btn" ><a href="korea.html">Korea</a></button>
+                            <button class="list-btn" ><a href="italy.html">Italy</a></button>
+                            <button class="list-btn" ><a href="uk.html">Uk</a></button>
+                            <button class="list-btn" ><a href="france.html">France</a></button>
+                            <button class="list-btn" ><a href="bangladesh.html">Bangladesh</a></button>
+                        </div>
+                    </li>
+                    <li>Language:
+                        <div rgba(65, 43, 83, 0.7) class="list">
+                            <button class="list-btn" > <a href="english.html">English</a></button>
+                            <button class="list-btn" ><a href="hindi.html">Hindi</a></button>
+                            <button class="list-btn" ><a href="punjabi.html">Punjabi</a></button>
+                            <button class="list-btn" ><a href="spanish.html">Spanish</a></button>
+                            <button class="list-btn" ><a href="german.html">German</a></button>
+                            <button class="list-btn" ><a href="chineese.html">chineese</a></button>
+                            <button class="list-btn" ><a href="canadian.html">Canadian</a></button>
+                            <button class="list-btn" ><a href="italian.html">italian</a></button>
+
+                            <button class="list-btn" ><a href="russian.html">Russian</a></button>
+                            <button class="list-btn" ><a href="urdu.html">Urdu</a></button>
+                            <button class="list-btn" ><a href="Arabic.html">Arabic</a></button>
+                            <button class="list-btn" ><a href="turkisk.html">Turkish</a></button>
+                            <button class="list-btn" ><a href="korean.html">Korean</a></button>
+                            <button class="list-btn" ><a href="japaneese.html">Japaneese</a></button>
+                            <button class="list-btn" ><a href="bangali.html">Bangali</a></button>
+                            <button class="list-btn" ><a href="tellugu.html">Tellugu</a></button>
+
+
+                        </div>
+                    </li>
+                </ul>
+                <div class="social">
+                    <h2>Follow Us</h2>
+                    <button class="icon-btn telegram"> 
+                    <a class="link" href="  t.me/hmovie1" target="_blank">
+                        <i class="bi bi-telegram "></i>
+                    </a>
+                    <button class="icon-btn facebook"> 
+                    <a class="link" href="https://www.facebook.com/100090446750530" target="_blank">
+                        <i class="fa fa-facebook"></i> 
+                    </a>
+                    <button class="icon-btn youtube"> 
+                    <a class="link" href="https://youtube.com/@animationrecap170" target="_blank">
+                        <i class="bi bi-youtube"></i> 
+                    </a>
+                    <button class="icon-btn tiktok"> 
+                    <a class="link" href="https://www.tiktok.com/@movie4512"  target="_blank">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+                    
+                </div>
+            </div>
+
+                <button type="button" name="open" class="c-nav-toggle c-nav-toggle--opener" id="nav-opener" aria-controls="nav-overlay">≡</button>
+        
+            
+            <a href="/" class="logo"><img src="img/logo.png" alt=""></a>
+            <div class="end_bx">
+                <div class="nav-list">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="movies.html">Movies</a></li>
+                        <li><a href="series.html" id="series" >Series</a></li>
+                        <li>Category <i class="fas fa-angle-down"></i>
+                            <div class="list">
+                                <a href="trends.html">Trends Now</a>
+                                <a href="popular.html">Popular</a>
+                                <a href="hollywood.html">Hollywood</a>
+                                <a href="bollywood.html">Bollywood</a>
+                                <a href="animation.html">Animation</a>
+                                <a href="anime.html">Anime</a>
+                                <a href="tollywood.html">Tollywood</a>
+
+                            </div>
+                        </li>
+                    </ul>
+                   
+
+                </div>               
+                <div class="search" id="search-container">
+                    <input type="text" placeholder="Search movies..." id="search">
+                    <i class="fas fa-search" id="search_icon"></i>
+                    <div class="search_bx2" id="search_results">
+                         <!--<a href="#">
+                            <img src="mimg/a perfact.jpg" alt="">
+                            <div class="content2">
+                                <h6>A Perfact</h6>
+                                <p>2018</p>
+                            </div>
+                        </a>-->
+                    </div>
+                </div>
+               <!-- <div class="bell">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="user">
+                  
+                     <img src="img/user.png" alt="Hast-Jutt" title="Hast-Jutt">
+                </div>-->
+            </div>
+        </nav>
+    </div>
+    <div class="content">
+        <h1 id="header_title">HMovies</h1>
+        <h3 id="header_gen"><i class="fas fa-star"></i>9.5
+            <span>GENRE / GENRE / GENRE</span>
+        </h3>
+       
+        <!--<p id="header_pra">From Wikipedia, the free encyclopedia Rampage is a series of video games released by Midway (1986–2009) and Warner Bros. Interactive Entertainment (2009–present) for the arcade and various consoles. The basic premise of the games is that,
+            due to experiment-related accidents, the player controls a human transformed into a giant monster.</p>-->
+        
+    </div>
+ 
+
+ 
+    <div class="header-content">
+        <p id="header_pra"></p>
+        <div id="header_dur"></div>
+        <div id="header_gen"></div>
+        <div id="toggle_buttons">
+          
+            <button id="next_button">Next</button>
+        </div>
+    </div>
+
+       
+        
+       
+    </header>
+
+    
+    <!-- trending box start  -->
+    
+
+   
+      
+    <!-- movies box strat  -->
+  
+    <!-- movies box end  -->
+ 
+    <!-- video box end  -->
+
+    <!-- trending box2 start  -->
+ 
+    <div class="cato_bx cato_bx2">
+        <div class="left_cato">
+          
+            <button id="all_btn" class="top-btn">|| USA Movies:</button>
+           
+            </div>
+        
+    </div>
+
+    <div class="movie_bx_1 movie_bx_2">
+        <div class="all box2_actives" id="all"></div>
+        <div class="latest box2_actives" id="latest"></div>
+        <div class="year" id="year_2022"></div>
+        <div class="year" id="year_2021"></div>
+        <div class="year" id="year_2020"></div>
+        <div class="letter" id="letter_a"></div>
+        <div class="letter" id="letter_b"></div>
+        <div class="letter" id="letter_t"></div>
+        <div class="rate_change" id="rate4"></div>
+        <div class="rate_change" id="rate8"></div>
+        <!-- <div class="card">
+            <a href="#">
+                <img src="mimg/abcd.jpg" alt="">
+                <div class="content">
+                    <h5>ABCD</h5>
+                    <h6>
+                        <span>2017</span>
+                        <div class="rate">
+                            <i class="bi bi-star-fill"></i>
+                            <span class ="imdb">IMDB</span>
+                            <h6>8.3</h6>
+                        </div>
+                    </h6>
+                </div>
+            </a>
+        </div>
+        <div class="card">
+            <a href="#">
+                <img src="mimg/a perfact.jpg" alt="">
+                <div class="content">
+                    <h5>A Perfact</h5>
+                    <h6>
+                        <span>2020</span>
+                        <div class="rate">
+                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-eye"></i>
+                            <i class="fas fa-star"></i>
+                            <h6>9.2</h6>
+                        </div>
+                    </h6>
+                </div>
+            </a>
+        
+        </div> -->
+        
+    </div>
+    <div class="pagination">
+              
+        <!--<li class="page-item previous-page disable"><a class="page-link" href="#">Prev</a></li>
+        <li class="page-item current-page active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item dots"><a class="page-link" href="#">...</a></li>
+
+        <li class="page-item current-page"><a class="page-link" href="#">5</a></li>
+        <li class="page-item current-page"><a class="page-link" href="#">6</a></li>
+        <li class="page-item dots"><a class="page-link" href="#">...</a></li>
+
+        <li class="page-item current-page"><a class="page-link" href="#">10</a></li>
+        <li class="page-item next-page"><a class="page-link" href="#">Next</a></li>-->
+
+      </div>  
+
+      <div class="footer-clean">
+        <footer>
+            <div class="container">
+                <a href="/" class="logo"><img src="img/logo.png" alt=""></a>
+                <div class="row ">
+                    
+                  
+                    <div class="col-sm-4 col-md-3 item">
+                        <h3>About</h3>
+                        <div class="pdiv"> <p>
+                            My name is HMovie. Here you can watch all Movies and series.
+                            This is fisrt site which are totally free and no ad you are seen on this website.
+                            Thank you for your patience.
+                         </p></div>
+                       
+                    </div>
+                    <div class="col-sm-41 col-md-3 item">
+                        <h3>Category</h3>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="movies.html">Movies</a></li>
+                            <li><a href="series.html">Series</a></li>
+                        </ul>
+                        <div class="social">
+                            <h2>Follow Us</h2>
+                            <button class="icon-btn telegram"> 
+                            <a class="link" href="t.me/hmovie1"alt="Telegram" target="_blank">
+                                  <i class="bi bi-telegram"></i>  
+                            </a>
+                            <button class="icon-btn facebook"> 
+                            <a class="link" href="https://www.facebook.com/100090446750530" target="_blank">
+                                <i class="fa fa-facebook"></i> 
+                            </a>
+                            <button class="icon-btn youtube"> 
+                            <a class="link" href="https://youtube.com/@animationrecap170" target="_blank">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                            <button class="icon-btn tiktok"> 
+                            <a class="link" href="https://www.tiktok.com/@movie4512"  target="_blank">
+                                <i class="bi bi-tiktok"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-3 item social">
+                        <p class="copyright">All Copyright Reserved© 2020</p>
+                      
+                    </div>
+                    
+                </div>
+              
+            </div>
+        </footer>
+    </div>
+    <script>
+        
+
+
+///
+
+window.addEventListener("scroll", function() {
+    var nav = document.querySelector("nav");
+    nav.classList.toggle('sticky', window.scrollY > 0);
+});
+//sidebar function//
+document.addEventListener("DOMContentLoaded", function() {
+  const navOpener = document.getElementById("nav-opener");
+  const navCloser = document.getElementById("nav-closer");
+  const navOverlay = document.getElementById("nav-overlay");
+  const contentContainer = document.querySelector(".content-container");
+
+  navOpener.addEventListener("click", function() {
+    navOverlay.classList.add("c-nav-overlay--open");
+    document.body.classList.add("is-overlay-open");
+    navOverlay.setAttribute("aria-expanded", "true");
+    trapFocus(navOverlay);
+  });
+
+  navCloser.addEventListener("click", function() {
+    navOverlay.classList.remove("c-nav-overlay--open");
+    document.body.classList.remove("is-overlay-open");
+    navOverlay.setAttribute("aria-expanded", "false");
+    document.getElementById("nav-opener").focus();
+  });
+
+  document.addEventListener("click", function(event) {
+    if (!navOverlay.contains(event.target) && event.target !== navOpener) {
+      navOverlay.classList.remove("c-nav-overlay--open");
+      document.body.classList.remove("is-overlay-open");
+      navOverlay.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // Close the navbar when scrolling outside the navbar area
+  window.addEventListener("scroll", function() {
+    if (navOverlay.classList.contains("c-nav-overlay--open")) {
+      navOverlay.classList.remove("c-nav-overlay--open");
+      document.body.classList.remove("is-overlay-open");
+      navOverlay.setAttribute("aria-expanded", "false");
+    }
+  });
+});
+
+/* 
+    onclick functions to launch the overlay and toggle the required classes
+*/
+// JavaScript (script.js)
+window.addEventListener('DOMContentLoaded', () => {
+    let header_dur = document.getElementById('header_dur');
+    let header_gen = document.getElementById('header_gen');
+    let header_title = document.getElementById('header_title');
+    let header_pra = document.getElementById('header_pra');
+    let header = document.getElementsByTagName('header')[0];
+    let movieContainer = document.getElementById('movie_container');
+
+    let nextButton = document.getElementById('next_button');
+    
+    let movies = [];
+    let currentMovieIndex = 0;
+
+    const loadMovieDetails = (movie) => {
+        header.style.background = `url('${movie.bimg}') no-repeat center center/contain`;
+        header.style.backgroundSize = "100% 100%"; // Adjust background size
+        
+     
+        
+        // Check if genre1 is not 'none' before displaying
+        if (movie.genre1 !== 'none') {
+            header_gen.innerHTML = `<span class="imdb">IMDB</span><i class="fas fa-star"></i>${movie.rate}
+                <a href="#" class="content-genre">${movie.genre1}, ${movie.genre2}, ${movie.genre3}, ${movie.genre4}, ...</a>`;
+        } else {
+            header_gen.innerHTML = `<span class="imdb">IMDB</span><i class="fas fa-star"></i>${movie.rate}`;
+        }
+        header_title.innerText = movie.title;
+        header_pra.innerText = movie.description;
+        
+
+        // Build the genre HTML only for properties with values other than "none"
+        let genreHTML = `<span class="imdb">IMDB</span><i class="fas fa-star"></i>${movie.rate}`;
+        const genreProperties = [movie.genre1, movie.genre2, movie.genre3, movie.genre4, movie.genre5, movie.genre6, movie.genre7, movie.genre8,
+        movie.genre9, movie.genre10, movie.genre11, movie.genre12, movie.genre13, movie.genre14,
+         movie.genre15, movie.genre16, movie.genre17, movie.genre18, movie.genre19 ];
+        const validGenres = genreProperties.filter(genre => genre && genre.toLowerCase() !== 'none');
+        if (validGenres.length > 0) {
+            genreHTML += `<a href="#" class="content-genre">${validGenres.join(', ')}</a>`;
+        }
+        header_gen.innerHTML = genreHTML;
+    };
+
+    const loadRandomMovie = () => {
+        const randomIndex = Math.floor(Math.random() * movies.length);
+        const randomMovie = movies[randomIndex];
+        loadMovieDetails(randomMovie);
+    };
+
+    const slideMovieCards = () => {
+        currentMovieIndex = (currentMovieIndex + 1) % movies.length;
+        const nextMovie = movies[currentMovieIndex];
+        loadMovieDetails(nextMovie);
+        movieContainer.style.transform = `translateX(-${currentMovieIndex * 100}%)`;
+    };
+
+    nextButton.addEventListener('click', () => {
+        currentMovieIndex = (currentMovieIndex + 1) % movies.length;
+        slideMovieCards();
+    });
+
+    fetch('movie.json')
+        .then(response => response.json())
+        .then(data => {
+            movies = data.filter(movie => movie.countri5 === "usa"); // Filter by type10
+            loadRandomMovie();
+            setInterval(slideMovieCards, 3000);
+        });
+});
+
+
+// volume change
+let json_url = "movie.json";
+
+fetch(json_url).then(Response => Response.json())
+.then((data) =>  {
+    
+
+    let usa_array = data.filter(ele => {
+        return ele.countri5 === "usa";
+    });
+     usa_array.forEach(element => {
+        const { img, title, year, url, rate } = element;
+        let card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+        <a href="${url}">
+            <img src="${img}" alt="${title}">
+            <div class="content">
+                <h5>${title}</h5>
+                <h6>
+                    <span>${year}</span>
+                    <div class="rate">
+                  
+                    <span>IMDB</span>
+                    <i class="bi bi-star-fill"></i>
+                        <h6>${rate}</h6>
+                    </div>
+                </h6>
+            </div>
+        </a>
+              `
+
+        all.appendChild(card);
+    });
+
+
+//search bar//
+let search = document.getElementById('search');
+let searchIcon = document.getElementById('search_icon');
+let searchContainer = document.querySelector('.search');
+let searchResults = document.querySelector('.search_bx2');
+
+searchIcon.addEventListener('click', () => {
+    search.classList.toggle('search_input');
+});
+let search_bx2 = document.getElementsByClassName('search_bx2')[0];
+
+
+data.forEach(element => {
+let { img, title, year, url } = element;
+
+let card = document.createElement('a');
+card.href = url;
+card.innerHTML = ` <img src="${img}" alt="">
+<div class="content2">
+    <h6>${title}</h6>
+    <p>${year}</p>
+</div>`;
+search_bx2.appendChild(card);
+});
+search.addEventListener('keyup', () => {
+    let filter = search.value.toUpperCase();
+    let a = searchResults.getElementsByTagName('a');
+    
+    for (let i = 0; i < a.length; i++) {
+        let b = a[i].getElementsByClassName('content2')[0];
+        
+        let textValue = b.textContent || b.innerText;
+        
+        if (textValue.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = '';
+            searchResults.style.visibility = "visible";
+            searchResults.style.opacity = 1;
+        } else {
+            a[i].style.display = 'none';
+        }
+        
+        if (search.value == 0) {
+            searchResults.style.visibility = "hidden";
+            searchResults.style.opacity = 0;
+        }
+    }
+    
+    if (filteredData.length === 0) {
+        const noResults = document.createElement('div');
+        noResults.classList.add('no-results');
+        noResults.innerText = 'No results found';
+        searchResults.appendChild(noResults);
+    }
+});
+
+window.addEventListener('click', (event) => {
+    if (!searchContainer.contains(event.target) && !searchIcon.contains(event.target)) {
+        closeSearch();
+    }
+});
+
+search.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+    }
+});
+
+function closeSearch() {
+    searchResults.style.visibility = "hidden";
+    searchResults.style.opacity = 0;
+}
+
+   //search filter
+
+  
+ 
+ 
+
+
+
+
+
+
+});
+
+//Pagination//
+document.addEventListener("DOMContentLoaded", function () {
+    const itemsPerPage = 14; // Number of items to display per page
+    const movieContainer = document.querySelector(".movie_bx_2");
+    const pagination = document.querySelector(".pagination");
+    let json_url = "movie.json";
+
+    fetch(json_url)
+        .then(Response => Response.json())
+        .then((data) =>  {
+            // Filter data by genre (e.g., drama)
+            const genreFilteredData = data.filter(item => item.countri5 === "usa"); // Change "drama" to your desired genre
+
+            const totalPages = Math.ceil(genreFilteredData.length / itemsPerPage);
+            let currentPage = 1;
+
+            function displayPage(pageNumber) {
+                movieContainer.innerHTML = "";
+                const startIndex = (pageNumber - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+
+                for (let i = startIndex; i < endIndex && i < genreFilteredData.length; i++) {
+                    const { img, title, year, url, rate } = genreFilteredData[i];
+                    const card = document.createElement("div");
+                    card.classList.add("card");
+                    card.innerHTML = `
+                        <a href="${url}">
+                            <img src="${img}" alt="${title}">
+                            <div class="content">
+                                <h5>${title}</h5>
+                                <h6>
+                                    <span>${year}</span>
+                                    <div class="rate">
+                                        <span>IMDB</span>
+                                        <i class="bi bi-star-fill"></i>
+                                        <h6>${rate}</h6>
+                                    </div>
+                                </h6>
+                            </div>
+                        </a>
+                    `;
+                    movieContainer.appendChild(card);
+                }
+            }
+
+            function updatePagination() {
+                pagination.innerHTML = "";
+                for (let i = 1; i <= totalPages; i++) {
+                    const li = document.createElement("li");
+                    li.classList.add("page-item");
+                    if (i === currentPage) {
+                        li.classList.add("current-page", "active");
+                    }
+                    const a = document.createElement("a");
+                    a.classList.add("page-link");
+                    a.href = "#";
+                    a.textContent = i;
+                    a.addEventListener("click", () => {
+                        currentPage = i;
+                        displayPage(currentPage);
+                        updatePagination();
+                    });
+                    li.appendChild(a);
+                    pagination.appendChild(li);
+                }
+            }
+
+            displayPage(currentPage);
+            updatePagination();
+        });
+});
+    </script>
+    
+</body>
+
+</html>
